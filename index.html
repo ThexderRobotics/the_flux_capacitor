@@ -66,6 +66,14 @@
       .range-wrap { margin-top: 1.8rem; }
       input[type="range"] { width: 100%; accent-color: var(--cyan); cursor: pointer; }
       .range-labels { display: flex; justify-content: space-between; margin-top: .35rem; color: var(--muted); font: .72rem ui-monospace, monospace; }
+      .lab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .lab-panel { padding: 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); }
+      .lab-panel h3 { margin: 0 0 .7rem; font-size: 1.4rem; }
+      .lab-panel p { color: var(--muted); }
+      .choice-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.2rem; }
+      .choice { padding: .65rem .85rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: rgba(7,11,24,.45); cursor: pointer; font: inherit; transition: .2s ease; }
+      .choice:hover, .choice.active { border-color: var(--cyan); color: #07111e; background: var(--cyan); box-shadow: 0 0 18px rgba(103,232,249,.2); }
+      .lab-output { min-height: 2.8em; margin: 1.2rem 0 0; color: var(--cyan) !important; font: 700 .85rem/1.5 ui-monospace, monospace; }
       .grid, .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
       .card { position: relative; overflow: hidden; padding: 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); backdrop-filter: blur(12px); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; animation: card-in .8s both; }
       .card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(103,232,249,.14), transparent 62%); transition: opacity .3s ease; }
@@ -96,6 +104,7 @@
         .device { min-height: 330px; transform: scale(.82); margin: -2rem 0; }
         .grid, .timeline, .specs { grid-template-columns: 1fr; }
         .navigator { grid-template-columns: 1fr; padding: 1.4rem; }
+        .lab-grid { grid-template-columns: 1fr; }
         section { padding: 4rem 0; }
         footer .wrap { flex-direction: column; }
       }
@@ -111,6 +120,7 @@
       <section class="hero" style="border-top: 0;"><div><p class="eyebrow">Temporal engineering / 1.21 gigawatts</p><h1>Make time travel <span class="gradient">possible.</span></h1><p class="hero-copy">The Flux Capacitor is the heart of every great leap through the timeline: a precision instrument that turns impossible journeys into destinations.</p><div class="actions"><a class="button primary" href="#how-it-works">Explore the science</a><a class="button" href="#mission">Our mission &#8594;</a></div></div><div class="device" aria-label="Illustration of a glowing flux capacitor"><div class="capacitor"><div class="core"></div></div><div class="readout">FLUX ONLINE // 88 MPH</div></div></section>
       <section aria-labelledby="specs-title"><div class="section-heading"><p class="eyebrow">Mission control</p><h2 id="specs-title">The numbers behind the legend.</h2></div><div class="specs"><div class="spec"><strong>1.21 GW</strong><span>Required output</span></div><div class="spec"><strong>88 MPH</strong><span>Threshold velocity</span></div><div class="spec"><strong>3.6 m</strong><span>Temporal field</span></div><div class="spec"><strong>∞</strong><span>Destinations</span></div></div></section>
       <section aria-labelledby="navigator-title"><div class="navigator"><div><p class="eyebrow">Temporal navigator</p><h3 id="navigator-title">Where would you go?</h3><p>Set a destination year and watch the capacitor calculate a safe arrival window.</p><div class="range-wrap"><input id="year-range" type="range" min="1885" max="2045" step="5" value="1985" aria-label="Choose a destination year"><div class="range-labels"><span>1885</span><span>1985</span><span>2045</span></div></div></div><div class="destination"><div class="destination-label">Destination locked</div><div class="destination-year" id="destination-year">1985</div><p class="destination-copy" id="destination-copy">The classic launch window. Roads? Where we are going, we don't need roads.</p><div class="coordinate" id="coordinate">TEMPORAL OFFSET: +00:00:00</div></div></div></section>
+      <section id="lab" aria-labelledby="lab-title"><div class="section-heading"><p class="eyebrow">Interactive lab</p><h2 id="lab-title">Take the controls.</h2><p>Choose a mission profile, test your knowledge, and see if your temporal instincts are calibrated.</p></div><div class="lab-grid"><div class="lab-panel"><h3>Choose a mission</h3><p>Pick a destination and the navigation computer will prepare your arrival brief.</p><div class="choice-row"><button class="choice mission-choice" data-mission="1885">1885 / OLD WEST</button><button class="choice mission-choice active" data-mission="1985">1985 / LAUNCH DAY</button><button class="choice mission-choice" data-mission="2045">2045 / TOMORROW</button></div><p class="lab-output" id="mission-output">MISSION READY: LAUNCH DAY / KEEP YOUR EYES ON THE CLOCK.</p></div><div class="lab-panel"><h3>Quick diagnostic</h3><p>What does the Flux Capacitor need to create a temporal jump?</p><div class="choice-row"><button class="choice quiz-choice" data-correct="true">1.21 gigawatts</button><button class="choice quiz-choice" data-correct="false">A strong Wi-Fi signal</button><button class="choice quiz-choice" data-correct="false">Three spare batteries</button></div><p class="lab-output" id="quiz-output">DIAGNOSTIC WAITING: SELECT AN ANSWER.</p></div></div></section>
       <section id="how-it-works"><div class="section-heading"><p class="eyebrow">Inside the mechanism</p><h2>Three ideas. One extraordinary result.</h2><p>At the intersection of energy, motion, and imagination, the capacitor opens a window to somewhere else in time.</p></div><div class="grid"><article class="card"><div class="card-number">01 / ENERGY</div><h3>Power the impossible</h3><p>A focused burst of energy gives the system enough charge to bend the rules of ordinary travel.</p></article><article class="card"><div class="card-number">02 / MOTION</div><h3>Reach the threshold</h3><p>At the right speed, the capacitor synchronizes the vehicle with a new temporal coordinate.</p></article><article class="card"><div class="card-number">03 / DESTINATION</div><h3>Arrive with purpose</h3><p>Every journey needs a date, a place, and a reason. The rest is just history waiting to happen.</p></article></div></section>
       <section id="timeline"><div class="section-heading"><p class="eyebrow">A short history of a big idea</p><h2>Built on curiosity.</h2></div><div class="timeline"><article class="card"><div class="year">1955</div><h3>The spark</h3><p>An experiment, a clock, and one spectacular accident reveal that time may be more flexible than it looks.</p></article><article class="card"><div class="year">1985</div><h3>The breakthrough</h3><p>The first successful temporal test proves that the future is not as far away as anyone thought.</p></article><article class="card"><div class="year">&#8734;</div><h3>The next chapter</h3><p>We are still learning where the road leads. That is exactly what makes the journey worth taking.</p></article></div></section>
       <section id="mission"><p class="quote">“The future is whatever you make it. So make it a good one.”<small>— A reminder for every time traveler</small></p></section>
@@ -150,6 +160,23 @@
         coordinate.textContent = selected[2];
       };
       yearRange.addEventListener('input', updateDestination);
+      const missionOutput = document.querySelector('#mission-output');
+      const missionBriefs = { 1885: 'MISSION READY: OLD WEST / PACK A HAT AND A SPARE FUEL CELL.', 1985: 'MISSION READY: LAUNCH DAY / KEEP YOUR EYES ON THE CLOCK.', 2045: 'MISSION READY: TOMORROW / BRING A PLAN FOR THE FUTURE.' };
+      document.querySelectorAll('.mission-choice').forEach((choice) => {
+        choice.addEventListener('click', () => {
+          document.querySelectorAll('.mission-choice').forEach((item) => item.classList.remove('active'));
+          choice.classList.add('active');
+          missionOutput.textContent = missionBriefs[choice.dataset.mission];
+        });
+      });
+      const quizOutput = document.querySelector('#quiz-output');
+      document.querySelectorAll('.quiz-choice').forEach((choice) => {
+        choice.addEventListener('click', () => {
+          document.querySelectorAll('.quiz-choice').forEach((item) => item.classList.remove('active'));
+          choice.classList.add('active');
+          quizOutput.textContent = choice.dataset.correct === 'true' ? 'DIAGNOSTIC PASSED: TEMPORAL CLEARANCE GRANTED.' : 'DIAGNOSTIC FAILED: CHECK THE POWER READOUT AND TRY AGAIN.';
+        });
+      });
     </script>
   </body>
 </html>
