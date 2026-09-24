@@ -18,6 +18,8 @@
       body::after { content: ""; position: fixed; z-index: -1; width: 28rem; height: 28rem; top: 18%; left: 42%; pointer-events: none; border-radius: 50%; background: rgba(103,232,249,.07); filter: blur(80px); animation: nebula 10s ease-in-out infinite alternate; }
       main, footer { position: relative; }
       .scroll-progress { position: fixed; z-index: 10; top: 0; left: 0; width: 0; height: 3px; background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink)); box-shadow: 0 0 14px var(--cyan); }
+      .build-badge { position: fixed; z-index: 12; top: 1rem; right: 1rem; padding: .42rem .65rem; border: 1px solid rgba(103,232,249,.35); border-radius: 6px; color: var(--cyan); background: rgba(7,11,24,.78); box-shadow: 0 0 18px rgba(103,232,249,.1); font: 700 .65rem ui-monospace, monospace; letter-spacing: .1em; backdrop-filter: blur(10px); }
+      .build-badge::before { content: ""; display: inline-block; width: .38rem; height: .38rem; margin-right: .42rem; border-radius: 50%; background: #86efac; box-shadow: 0 0 8px #86efac; }
       a { color: inherit; text-decoration: none; }
       .wrap { width: min(1120px, calc(100% - 2.5rem)); margin: 0 auto; }
       header { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
@@ -198,6 +200,7 @@
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="build-badge" title="Current deployed build">BUILD 0012 / 75ACBFF</div>
     <div class="warp-overlay" id="warp-overlay" aria-hidden="true"><div class="warp-message">TEMPORAL JUMP COMPLETE<small>WELCOME TO THE NEXT MOMENT</small></div></div>
     <header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="#top"><span class="brand-mark"><span class="logo-letter">F</span></span><span>THE FLUX CAPACITOR</span></a><div class="nav-links"><a href="#how-it-works">How it works</a><a href="#timeline">Timeline</a><a href="#mission">Mission</a></div></nav></div></header>
     <main id="top"><div class="wrap">
