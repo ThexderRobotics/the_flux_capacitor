@@ -41,25 +41,24 @@
       .feature:hover { transform:translateY(-4px); box-shadow:0 14px 30px #355b3c18; }
       .feature-number { color:var(--accent); font:12px monospace; }
       .feature h3 { margin:22px 0 5px; font-size:1.05rem; }
-      .cv-card { display:grid; grid-template-columns:1fr 1.3fr; gap:26px; align-items:start; }
-      .pdf-frame { width:100%; height:700px; border:1px solid var(--line); border-radius:16px; background:#fff; box-shadow:0 18px 45px #355b3c18; }
+      .cv-card { max-width:620px; }
       footer { padding:28px 0 44px; color:var(--muted); font-size:13px; }
-      @media print { header,main,#about,footer,.eyebrow,.actions { display:none; } section { border:0; } .cv-card { display:block; } .pdf-frame { height:1000px; border:0; } }
-      @media (max-width:760px) { .wrap { width:min(100% - 28px,1060px); } header { gap:14px; align-items:flex-start; } nav { gap:12px; } .hero { grid-template-columns:1fr; gap:34px; } .hero-art { width:220px; min-height:220px; justify-self:center; } .feature-grid { grid-template-columns:1fr; } .cv-card { grid-template-columns:1fr; } .pdf-frame { height:620px; } main { padding-top:62px; } }
+      @media print { header,main,#about,footer,.eyebrow,.actions { display:none; } section { border:0; } }
+      @media (max-width:760px) { .wrap { width:min(100% - 28px,1060px); } header { gap:14px; align-items:flex-start; } nav { gap:12px; } .hero { grid-template-columns:1fr; gap:34px; } .hero-art { width:220px; min-height:220px; justify-self:center; } .feature-grid { grid-template-columns:1fr; } main { padding-top:62px; } }
     </style>
   </head>
   <body>
     <div class="wrap">
       <header>
         <div class="mark">ZB / personal</div>
-        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#cv">CV</a><span class="build">BUILD 0025</span></nav>
+        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#cv">CV</a><span class="build">BUILD 0026</span></nav>
       </header>
       <main class="hero">
         <div><div class="eyebrow">Hello, I'm Zander Booyzen</div><h1>A workbench for the things I build.</h1><p class="intro">Welcome to my personal website. Explore my background, experience, and the work I’m currently focused on.</p><div class="actions"><a class="button" href="#cv">View my CV ↓</a><a class="button secondary" href="assets/CV-Zander-Booyzen-2026.pdf" download>Download PDF</a></div></div>
         <div class="hero-art" aria-hidden="true"><div class="plant"><i class="stem"></i><i class="leaf one"></i><i class="leaf two"></i><i class="leaf three"></i><i class="leaf four"></i></div><span class="hero-note">GROW / MAKE / SHARE</span></div>
       </main>
       <section id="about"><div class="eyebrow">01 / About</div><h2>A little more about me.</h2><p class="muted">This site is a home for my professional profile, projects, and ideas. My CV below contains the detailed record of my experience and qualifications.</p><div class="feature-grid"><article class="feature"><span class="feature-number">01</span><h3>Experience</h3><p class="muted">A clear view of my professional background.</p></article><article class="feature"><span class="feature-number">02</span><h3>Projects</h3><p class="muted">A growing collection of work and experiments.</p></article><article class="feature"><span class="feature-number">03</span><h3>Ideas</h3><p class="muted">Notes on the things I’m learning and making.</p></article></div></section>
-      <section id="cv"><div class="eyebrow">02 / Curriculum vitae</div><div class="cv-card"><div><h2>My CV</h2><p class="muted">Read it here or download a copy for later. The document is served directly from this website.</p><div class="actions"><a class="button" href="assets/CV-Zander-Booyzen-2026.pdf" download>Download my CV</a><a class="button secondary" href="javascript:window.print()">Print CV</a></div></div><iframe class="pdf-frame" title="Zander Booyzen CV" src="assets/CV-Zander-Booyzen-2026.pdf"></iframe></div></section>
+      <section id="cv"><div class="eyebrow">02 / Curriculum vitae</div><div class="cv-card"><h2>My CV</h2><p class="muted">Download a copy of my current CV for a complete overview of my experience and qualifications.</p><div class="actions"><a class="button" href="assets/CV-Zander-Booyzen-2026.pdf" download>Download my CV</a><a class="button secondary" href="javascript:window.print()">Print CV</a></div></div></section>
       <footer>© 2026 Zander Booyzen · Built and deployed from Git.</footer>
     </div>
   </body>
