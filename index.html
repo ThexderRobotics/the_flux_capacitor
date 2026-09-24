@@ -3,8 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Personal Website</title>
+    <meta name="description" content="The personal website and CV of Zander Booyzen." />
+    <title>Zander Booyzen | Personal Website</title>
+    <style>
+      :root { color-scheme: dark; --bg:#0b0d12; --panel:#131720; --line:#2a3140; --text:#f3f5f7; --muted:#aab2c0; --accent:#9df0c1; }
+      * { box-sizing:border-box; }
+      html { scroll-behavior:smooth; }
+      body { margin:0; background:radial-gradient(circle at 80% 0%,#1b2930 0,transparent 34rem),var(--bg); color:var(--text); font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif; }
+      a { color:inherit; }
+      .wrap { width:min(1060px,calc(100% - 40px)); margin:auto; }
+      header { display:flex; justify-content:space-between; align-items:center; padding:24px 0; border-bottom:1px solid var(--line); }
+      .mark { font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+      .build { color:var(--muted); font:11px/1 monospace; letter-spacing:.12em; }
+      nav { display:flex; gap:22px; color:var(--muted); font-size:14px; }
+      nav a { text-decoration:none; } nav a:hover { color:var(--accent); }
+      main { padding:90px 0 70px; }
+      .eyebrow { color:var(--accent); font:12px monospace; letter-spacing:.18em; text-transform:uppercase; }
+      h1 { max-width:760px; margin:14px 0 20px; font-size:clamp(3rem,8vw,6.7rem); line-height:.93; letter-spacing:-.07em; }
+      .intro { max-width:600px; color:var(--muted); font-size:1.15rem; }
+      .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+      .button { display:inline-flex; align-items:center; gap:8px; padding:12px 18px; border:1px solid var(--accent); border-radius:999px; color:var(--bg); background:var(--accent); text-decoration:none; font-weight:700; }
+      .button.secondary { background:transparent; color:var(--text); border-color:var(--line); }
+      section { padding:38px 0; border-top:1px solid var(--line); }
+      h2 { margin:0 0 10px; font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.04em; }
+      .muted { color:var(--muted); }
+      .cv-card { display:grid; grid-template-columns:1fr 1.3fr; gap:26px; align-items:start; }
+      .pdf-frame { width:100%; height:700px; border:1px solid var(--line); border-radius:16px; background:#fff; }
+      footer { padding:28px 0 44px; color:var(--muted); font-size:13px; }
+      @media (max-width:760px) { .wrap { width:min(100% - 28px,1060px); } header { gap:14px; align-items:flex-start; } nav { gap:12px; } .cv-card { grid-template-columns:1fr; } .pdf-frame { height:620px; } main { padding-top:62px; } }
+    </style>
   </head>
   <body>
+    <div class="wrap">
+      <header>
+        <div class="mark">ZB / personal</div>
+        <nav aria-label="Main navigation"><a href="#about">About</a><a href="#cv">CV</a><span class="build">BUILD 0024</span></nav>
+      </header>
+      <main>
+        <div class="eyebrow">Hello, I'm Zander Booyzen</div>
+        <h1>A workbench for the things I build.</h1>
+        <p class="intro">Welcome to my personal website. Explore my background, experience, and the work I’m currently focused on.</p>
+        <div class="actions"><a class="button" href="#cv">View my CV ↓</a><a class="button secondary" href="assets/CV-Zander-Booyzen-2026.pdf" download>Download PDF</a></div>
+      </main>
+      <section id="about"><div class="eyebrow">01 / About</div><h2>A little more about me.</h2><p class="muted">This site is being built as a home for my professional profile, projects, and ideas. My CV below contains the detailed record of my experience and qualifications.</p></section>
+      <section id="cv"><div class="eyebrow">02 / Curriculum vitae</div><div class="cv-card"><div><h2>My CV</h2><p class="muted">Read it here or download a copy for later. The document is served directly from this website.</p><a class="button" href="assets/CV-Zander-Booyzen-2026.pdf" download>Download my CV</a></div><iframe class="pdf-frame" title="Zander Booyzen CV" src="assets/CV-Zander-Booyzen-2026.pdf"></iframe></div></section>
+      <footer>© 2026 Zander Booyzen · Built and deployed from Git.</footer>
+    </div>
   </body>
 </html>
