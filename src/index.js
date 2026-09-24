@@ -28,8 +28,9 @@ export default {
         });
 
         return json({ ok: true });
-      } catch {
-        return json({ error: 'Unable to send message.' }, 500);
+      } catch (error) {
+        console.error('Contact email failed:', error?.code || error?.message || error);
+        return json({ error: error?.code || 'Email service could not send the message.' }, 500);
       }
     }
 
