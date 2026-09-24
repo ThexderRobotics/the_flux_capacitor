@@ -23,7 +23,9 @@
       header { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
       nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
       .brand { display: flex; align-items: center; gap: .75rem; font-weight: 800; letter-spacing: .03em; }
-      .brand-mark { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid var(--cyan); border-radius: 50%; color: var(--cyan); box-shadow: 0 0 22px rgba(103,232,249,.5); }
+      .brand-mark { position: relative; display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid var(--cyan); border-radius: 50%; color: var(--cyan); box-shadow: 0 0 22px rgba(103,232,249,.5); animation: logo-pulse 2.6s ease-in-out infinite; }
+      .brand-mark::after { content: ""; position: absolute; inset: -5px; border: 1px solid transparent; border-top-color: var(--pink); border-right-color: rgba(103,232,249,.8); border-radius: 50%; animation: logo-orbit 4s linear infinite; }
+      .logo-letter { display: block; animation: letter-flux 1.8s ease-in-out infinite; }
       .nav-links { display: flex; gap: 1.4rem; color: var(--muted); font-size: .92rem; }
       .nav-links a:hover { color: var(--cyan); }
       .hero { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 4rem; padding: 7rem 0 6rem; }
@@ -104,6 +106,9 @@
       footer { padding: 2rem 0 3rem; color: var(--muted); font-size: .9rem; }
       footer .wrap { display: flex; justify-content: space-between; gap: 1rem; }
       @keyframes pulse { 50% { transform: scale(1.04); filter: brightness(1.15); } }
+      @keyframes logo-pulse { 50% { color: #fff; box-shadow: 0 0 12px rgba(103,232,249,.65), 0 0 30px rgba(167,139,250,.4); } }
+      @keyframes logo-orbit { to { transform: rotate(360deg); } }
+      @keyframes letter-flux { 0%, 100% { transform: scale(1) rotate(0deg); text-shadow: 0 0 5px var(--cyan); } 45% { transform: scale(1.18) rotate(-5deg); text-shadow: 0 0 9px #fff, 0 0 18px var(--cyan), 0 0 28px var(--violet); } 60% { transform: scale(.96) rotate(3deg); } }
       @keyframes orbit-a { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
       @keyframes orbit-b { from { transform: rotate(-30deg); } to { transform: rotate(330deg); } }
       @keyframes blink { 50% { opacity: .35; box-shadow: 0 0 3px #86efac; } }
@@ -128,7 +133,7 @@
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
-    <header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="#top"><span class="brand-mark">F</span><span>THE FLUX CAPACITOR</span></a><div class="nav-links"><a href="#how-it-works">How it works</a><a href="#timeline">Timeline</a><a href="#mission">Mission</a></div></nav></div></header>
+    <header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="#top"><span class="brand-mark"><span class="logo-letter">F</span></span><span>THE FLUX CAPACITOR</span></a><div class="nav-links"><a href="#how-it-works">How it works</a><a href="#timeline">Timeline</a><a href="#mission">Mission</a></div></nav></div></header>
     <main id="top"><div class="wrap">
       <section class="hero" style="border-top: 0;"><div><p class="eyebrow">Temporal engineering / 1.21 gigawatts</p><h1>Make time travel <span class="gradient">possible.</span></h1><p class="hero-copy">The Flux Capacitor is the heart of every great leap through the timeline: a precision instrument that turns impossible journeys into destinations.</p><div class="actions"><a class="button primary" href="#how-it-works">Explore the science</a><a class="button" href="#mission">Our mission &#8594;</a></div></div><div class="device" aria-label="Illustration of a glowing flux capacitor"><div class="capacitor"><div class="core"></div></div><div class="readout">FLUX ONLINE // 88 MPH</div></div></section>
       <section aria-labelledby="specs-title"><div class="section-heading"><p class="eyebrow">Mission control</p><h2 id="specs-title">The numbers behind the legend.</h2></div><div class="specs"><div class="spec"><strong>1.21 GW</strong><span>Required output</span></div><div class="spec"><strong>88 MPH</strong><span>Threshold velocity</span></div><div class="spec"><strong>3.6 m</strong><span>Temporal field</span></div><div class="spec"><strong>∞</strong><span>Destinations</span></div></div></section>
