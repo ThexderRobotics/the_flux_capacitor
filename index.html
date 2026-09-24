@@ -55,6 +55,17 @@
       .spec { padding: 1.2rem; border-left: 1px solid var(--cyan); background: linear-gradient(90deg, rgba(103,232,249,.08), transparent); }
       .spec strong { display: block; color: var(--ink); font: 800 clamp(1.5rem, 3vw, 2.2rem)/1 ui-monospace, monospace; letter-spacing: -.08em; }
       .spec span { display: block; margin-top: .5rem; color: var(--muted); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+      .navigator { display: grid; grid-template-columns: 1fr .9fr; gap: 2rem; align-items: center; padding: 2rem; border: 1px solid rgba(103,232,249,.28); border-radius: 24px; background: linear-gradient(135deg, rgba(103,232,249,.1), rgba(167,139,250,.08)); box-shadow: inset 0 1px rgba(255,255,255,.06), 0 24px 70px rgba(0,0,0,.16); }
+      .navigator h3 { margin: 0 0 .7rem; font-size: 1.7rem; }
+      .navigator p { margin: 0; color: var(--muted); }
+      .destination { padding: 1.4rem; border: 1px solid var(--line); border-radius: 16px; background: rgba(7,11,24,.5); }
+      .destination-label { color: var(--cyan); font: 700 .72rem ui-monospace, monospace; letter-spacing: .16em; text-transform: uppercase; }
+      .destination-year { margin: .4rem 0; font: 800 clamp(2.5rem, 6vw, 4.5rem)/1 ui-monospace, monospace; letter-spacing: -.09em; }
+      .destination-copy { min-height: 3.2em; }
+      .coordinate { margin-top: 1rem; color: var(--pink); font: 700 .78rem ui-monospace, monospace; }
+      .range-wrap { margin-top: 1.8rem; }
+      input[type="range"] { width: 100%; accent-color: var(--cyan); cursor: pointer; }
+      .range-labels { display: flex; justify-content: space-between; margin-top: .35rem; color: var(--muted); font: .72rem ui-monospace, monospace; }
       .grid, .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
       .card { position: relative; overflow: hidden; padding: 1.5rem; border: 1px solid var(--line); border-radius: 18px; background: var(--panel); backdrop-filter: blur(12px); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; animation: card-in .8s both; }
       .card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: radial-gradient(240px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(103,232,249,.14), transparent 62%); transition: opacity .3s ease; }
@@ -84,6 +95,7 @@
         .hero { grid-template-columns: 1fr; gap: 2rem; padding: 5rem 0 4rem; }
         .device { min-height: 330px; transform: scale(.82); margin: -2rem 0; }
         .grid, .timeline, .specs { grid-template-columns: 1fr; }
+        .navigator { grid-template-columns: 1fr; padding: 1.4rem; }
         section { padding: 4rem 0; }
         footer .wrap { flex-direction: column; }
       }
@@ -98,6 +110,7 @@
     <main id="top"><div class="wrap">
       <section class="hero" style="border-top: 0;"><div><p class="eyebrow">Temporal engineering / 1.21 gigawatts</p><h1>Make time travel <span class="gradient">possible.</span></h1><p class="hero-copy">The Flux Capacitor is the heart of every great leap through the timeline: a precision instrument that turns impossible journeys into destinations.</p><div class="actions"><a class="button primary" href="#how-it-works">Explore the science</a><a class="button" href="#mission">Our mission &#8594;</a></div></div><div class="device" aria-label="Illustration of a glowing flux capacitor"><div class="capacitor"><div class="core"></div></div><div class="readout">FLUX ONLINE // 88 MPH</div></div></section>
       <section aria-labelledby="specs-title"><div class="section-heading"><p class="eyebrow">Mission control</p><h2 id="specs-title">The numbers behind the legend.</h2></div><div class="specs"><div class="spec"><strong>1.21 GW</strong><span>Required output</span></div><div class="spec"><strong>88 MPH</strong><span>Threshold velocity</span></div><div class="spec"><strong>3.6 m</strong><span>Temporal field</span></div><div class="spec"><strong>∞</strong><span>Destinations</span></div></div></section>
+      <section aria-labelledby="navigator-title"><div class="navigator"><div><p class="eyebrow">Temporal navigator</p><h3 id="navigator-title">Where would you go?</h3><p>Set a destination year and watch the capacitor calculate a safe arrival window.</p><div class="range-wrap"><input id="year-range" type="range" min="1885" max="2045" step="5" value="1985" aria-label="Choose a destination year"><div class="range-labels"><span>1885</span><span>1985</span><span>2045</span></div></div></div><div class="destination"><div class="destination-label">Destination locked</div><div class="destination-year" id="destination-year">1985</div><p class="destination-copy" id="destination-copy">The classic launch window. Roads? Where we are going, we don't need roads.</p><div class="coordinate" id="coordinate">TEMPORAL OFFSET: +00:00:00</div></div></div></section>
       <section id="how-it-works"><div class="section-heading"><p class="eyebrow">Inside the mechanism</p><h2>Three ideas. One extraordinary result.</h2><p>At the intersection of energy, motion, and imagination, the capacitor opens a window to somewhere else in time.</p></div><div class="grid"><article class="card"><div class="card-number">01 / ENERGY</div><h3>Power the impossible</h3><p>A focused burst of energy gives the system enough charge to bend the rules of ordinary travel.</p></article><article class="card"><div class="card-number">02 / MOTION</div><h3>Reach the threshold</h3><p>At the right speed, the capacitor synchronizes the vehicle with a new temporal coordinate.</p></article><article class="card"><div class="card-number">03 / DESTINATION</div><h3>Arrive with purpose</h3><p>Every journey needs a date, a place, and a reason. The rest is just history waiting to happen.</p></article></div></section>
       <section id="timeline"><div class="section-heading"><p class="eyebrow">A short history of a big idea</p><h2>Built on curiosity.</h2></div><div class="timeline"><article class="card"><div class="year">1955</div><h3>The spark</h3><p>An experiment, a clock, and one spectacular accident reveal that time may be more flexible than it looks.</p></article><article class="card"><div class="year">1985</div><h3>The breakthrough</h3><p>The first successful temporal test proves that the future is not as far away as anyone thought.</p></article><article class="card"><div class="year">&#8734;</div><h3>The next chapter</h3><p>We are still learning where the road leads. That is exactly what makes the journey worth taking.</p></article></div></section>
       <section id="mission"><p class="quote">“The future is whatever you make it. So make it a good one.”<small>— A reminder for every time traveler</small></p></section>
@@ -118,6 +131,25 @@
           card.style.setProperty('--mouse-y', `${event.clientY - bounds.top}px`);
         });
       });
+      const yearRange = document.querySelector('#year-range');
+      const destinationYear = document.querySelector('#destination-year');
+      const destinationCopy = document.querySelector('#destination-copy');
+      const coordinate = document.querySelector('#coordinate');
+      const destinations = [
+        [1900, 'A quieter century. Mind the top hats and the experimental machinery.', 'TEMPORAL OFFSET: -00:08:55'],
+        [1955, 'The spark is waiting. Keep your eyes on the clock tower.', 'TEMPORAL OFFSET: -00:03:30'],
+        [1985, "The classic launch window. Roads? Where we are going, we don't need roads.", 'TEMPORAL OFFSET: +00:00:00'],
+        [2025, 'A familiar world with unfamiliar possibilities. Proceed with curiosity.', 'TEMPORAL OFFSET: +00:04:12'],
+        [2045, 'The horizon is bright. Please bring a plan for the future.', 'TEMPORAL OFFSET: +00:11:21']
+      ];
+      const updateDestination = () => {
+        const year = Number(yearRange.value);
+        const selected = destinations.reduce((best, item) => Math.abs(item[0] - year) < Math.abs(best[0] - year) ? item : best);
+        destinationYear.textContent = year;
+        destinationCopy.textContent = selected[1];
+        coordinate.textContent = selected[2];
+      };
+      yearRange.addEventListener('input', updateDestination);
     </script>
   </body>
 </html>
