@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="Contact Zander Booyzen." /><title>Zander Booyzen | Contact</title><link rel="stylesheet" href="styles.css" /></head>
+  <body><div class="wrap">
+    <header><div class="mark">ZB / personal</div><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a href="cv.html">CV</a><a class="active" href="contact.html">Contact</a><span class="build">BUILD 0029</span></nav></header>
+    <main><div class="page-intro"><div class="eyebrow">03 / Contact</div><h1>Let’s start a conversation.</h1><p class="intro">Have a question, an idea, or an opportunity to share? Send me a message and I’ll get back to you.</p></div>
+      <div class="content-card"><form class="contact-form" id="contact-form"><div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required /></div><div class="field"><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" required /></div><div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div><div class="actions"><button class="button" type="submit">Send message →</button></div><p class="form-note">Your email app will open with the message addressed to mail@zanderbooyzen.com.</p></form></div>
+    </main>
+    <footer>© 2026 Zander Booyzen · <a href="index.html">Back home</a></footer>
+  </div><script>document.getElementById('contact-form').addEventListener('submit',function(event){event.preventDefault();const name=document.getElementById('name').value.trim();const email=document.getElementById('email').value.trim();const message=document.getElementById('message').value.trim();const subject=encodeURIComponent('Website message from '+name);const body=encodeURIComponent(message+'\n\nFrom: '+name+' <'+email+'>');window.location.href='mailto:mail@zanderbooyzen.com?subject='+subject+'&body='+body;});</script></body>
+</html>

@@ -38,6 +38,13 @@ h2 { margin:0 0 10px; font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.04em; }
 .page-intro { max-width:720px; margin-bottom:45px; }
 .content-card { max-width:720px; padding:30px; border:1px solid var(--line); border-radius:22px; background:#fffdf788; }
 .content-card { animation:riseIn .7s .15s ease both; }
+.contact-form { display:grid; gap:18px; }
+.field { display:grid; gap:7px; }
+.field label { color:var(--muted); font-size:14px; }
+.field input,.field textarea { width:100%; border:1px solid var(--line); border-radius:12px; padding:13px 14px; color:var(--text); background:#fffdf7; font:inherit; outline:none; transition:border-color .2s ease,box-shadow .2s ease; }
+.field textarea { min-height:170px; resize:vertical; }
+.field input:focus,.field textarea:focus { border-color:var(--accent); box-shadow:0 0 0 4px #2e70481c; }
+.form-note { margin:0; color:var(--muted); font-size:13px; }
 footer { padding:28px 0 44px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
 @keyframes pageIn { from { opacity:0; } to { opacity:1; } }
 @keyframes riseIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
