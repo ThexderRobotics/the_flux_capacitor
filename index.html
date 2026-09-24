@@ -106,6 +106,7 @@
       .diagram-text { fill: var(--ink); font: 700 11px ui-monospace, monospace; letter-spacing: .08em; }
       .diagram-muted { fill: var(--muted); font: 10px ui-monospace, monospace; }
       .diagram-dot { fill: var(--cyan); filter: drop-shadow(0 0 5px var(--cyan)); }
+      .diagram [stroke-dasharray]:not(.diagram-wire):not(.diagram-ring), .gallery-art [stroke-dasharray] { animation: dash-flow 1.6s linear infinite; }
       .console { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1rem; padding: 1rem; border: 1px solid rgba(103,232,249,.3); border-radius: 24px; background: linear-gradient(135deg, rgba(17,24,48,.9), rgba(7,11,24,.86)); box-shadow: 0 25px 80px rgba(0,0,0,.2); }
       .control-panel, .console-screen { padding: 1.5rem; border: 1px solid var(--line); border-radius: 16px; }
       .control-panel { background: rgba(255,255,255,.025); }
@@ -213,6 +214,7 @@
       @keyframes wire-flow { to { stroke-dashoffset: -32; } }
       @keyframes diagram-spin { to { transform: rotate(360deg); } }
       @keyframes diagram-core-pulse { 50% { r: 13; opacity: .75; } }
+      @keyframes dash-flow { to { stroke-dashoffset: -28; } }
       @keyframes warp-sequence { 0% { opacity: 0; transform: scale(.2); } 18% { opacity: 1; transform: scale(1); } 48% { opacity: 1; } 100% { opacity: 0; transform: scale(1.8); } }
       @media (max-width: 760px) {
         .nav-links { display: none; }
@@ -237,7 +239,7 @@
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
-    <div class="build-badge" title="Current deployed build">BUILD 0018</div>
+    <div class="build-badge" title="Current deployed build">BUILD 0019</div>
     <div class="warp-overlay" id="warp-overlay" aria-hidden="true"><div class="warp-message">TEMPORAL JUMP COMPLETE<small>WELCOME TO THE NEXT MOMENT</small></div></div>
     <div class="schematic-modal" id="schematic-modal" hidden aria-hidden="true"><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title"><button class="modal-close" id="modal-close" aria-label="Close diagram">&times;</button><h3 id="modal-title">Schematic</h3><p id="modal-description">Technical drawing</p><div class="modal-art" id="modal-art"></div></div></div>
     <header><div class="wrap"><nav aria-label="Main navigation"><a class="brand" href="#top"><span class="brand-mark"><span class="logo-letter">F</span></span><span>THE FLUX CAPACITOR</span></a><div class="nav-links"><a href="#what-is-it">Technical brief</a><a href="#console">Controls</a><a href="#gallery">Gallery</a></div></nav></div></header>
