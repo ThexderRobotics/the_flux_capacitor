@@ -11,7 +11,7 @@
   "send_email": [
     {
       "name": "EMAIL",
-      "destination_address": "mail@zanderbooyzen.com",
+      "destination_address": "zanderbooyzen@gmail.com",
       "allowed_sender_addresses": ["mail@zanderbooyzen.com"]
     }
   ]

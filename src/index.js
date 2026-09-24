@@ -20,7 +20,7 @@ export default {
 
         await env.EMAIL.send({
           from: 'mail@zanderbooyzen.com',
-          to: 'mail@zanderbooyzen.com',
+          to: 'zanderbooyzen@gmail.com',
           replyTo: email,
           subject: `Website message from ${name}`,
           text: `${message}\n\nFrom: ${name} <${email}>`,
