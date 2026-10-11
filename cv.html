@@ -26,51 +26,220 @@
           <p class="intro">Suggested rates in South African rand (ZAR) for home users and businesses. I’ll confirm the scope and final price with you before work begins.</p>
         </div>
 
-        <section class="price-list" aria-label="Services and recommended prices">
-          <article class="price-card">
-            <div>
-              <h2>Home & Business IT Support</h2>
-              <p class="muted">Computer, device, software, and general troubleshooting for individuals and teams.</p>
-            </div>
-            <p class="price"><strong>R450</strong><span>per hour</span></p>
+        <p class="service-hint" id="service-hint">Select a service card to see what’s included. Select it again to return to the price.</p>
+        <section class="price-list" aria-label="Services and recommended prices" aria-describedby="service-hint">
+          <article class="service-flip">
+            <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Home and Business IT Support">
+              <span class="service-face service-face-front" aria-hidden="false">
+                <span>
+                  <span class="service-title">Home & Business IT Support</span>
+                  <span class="muted">Computer, device, software, and general troubleshooting.</span>
+                  <span class="flip-hint">Select to see what’s included</span>
+                </span>
+                <span class="price"><strong>R450</strong><span>per hour</span></span>
+              </span>
+              <span class="service-face service-face-back" aria-hidden="true" inert>
+                <span class="service-title">What’s included</span>
+                <span class="service-details">Diagnosis of common computer and device problems, software and settings assistance, and practical guidance for home users and business teams.</span>
+                <span class="flip-hint">Select to see the price</span>
+              </span>
+            </button>
+            <button class="service-book-button" type="button" data-book-service="Home & Business IT Support">Book this service →</button>
           </article>
-          <article class="price-card">
-            <div>
-              <h2>Remote Desktop Support</h2>
-              <p class="muted">Remote troubleshooting and software setup, billed in 30-minute increments.</p>
-            </div>
-            <p class="price"><strong>R350</strong><span>per hour</span></p>
+          <article class="service-flip">
+            <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Remote Desktop Support">
+              <span class="service-face service-face-front" aria-hidden="false">
+                <span>
+                  <span class="service-title">Remote Desktop Support</span>
+                  <span class="muted">Remote troubleshooting and software setup, billed in 30-minute increments.</span>
+                  <span class="flip-hint">Select to see what’s included</span>
+                </span>
+                <span class="price"><strong>R350</strong><span>per hour</span></span>
+              </span>
+              <span class="service-face service-face-back" aria-hidden="true" inert>
+                <span class="service-title">What’s included</span>
+                <span class="service-details">A remote session to investigate supported computer issues, adjust settings, and help install or configure software. You stay in control of your device throughout.</span>
+                <span class="flip-hint">Select to see the price</span>
+              </span>
+            </button>
+            <button class="service-book-button" type="button" data-book-service="Remote Desktop Support">Book this service →</button>
           </article>
-          <article class="price-card">
-            <div>
-              <h2>Wi-Fi & Network Setup</h2>
-              <p class="muted">Router, Wi-Fi, and connected-device setup for homes and small offices.</p>
-            </div>
-            <p class="price"><strong>From R650</strong><span>per setup</span></p>
+          <article class="service-flip">
+            <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Wi-Fi and Network Setup">
+              <span class="service-face service-face-front" aria-hidden="false">
+                <span>
+                  <span class="service-title">Wi-Fi & Network Setup</span>
+                  <span class="muted">Router, Wi-Fi, and connected-device setup for homes and small offices.</span>
+                  <span class="flip-hint">Select to see what’s included</span>
+                </span>
+                <span class="price"><strong>From R650</strong><span>per setup</span></span>
+              </span>
+              <span class="service-face service-face-back" aria-hidden="true" inert>
+                <span class="service-title">What’s included</span>
+                <span class="service-details">Help configuring a router and Wi-Fi, connecting your devices, and checking coverage and basic network settings. Equipment is not included.</span>
+                <span class="flip-hint">Select to see the price</span>
+              </span>
+            </button>
+            <button class="service-book-button" type="button" data-book-service="Wi-Fi & Network Setup">Book this service →</button>
           </article>
-          <article class="price-card">
-            <div>
-              <h2>Security & Backup Setup</h2>
-              <p class="muted">Practical device security, data backups, and recovery guidance.</p>
-            </div>
-            <p class="price"><strong>From R650</strong><span>per setup</span></p>
+          <article class="service-flip">
+            <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Security and Backup Setup">
+              <span class="service-face service-face-front" aria-hidden="false">
+                <span>
+                  <span class="service-title">Security & Backup Setup</span>
+                  <span class="muted">Practical device security, data backups, and recovery guidance.</span>
+                  <span class="flip-hint">Select to see what’s included</span>
+                </span>
+                <span class="price"><strong>From R650</strong><span>per setup</span></span>
+              </span>
+              <span class="service-face service-face-back" aria-hidden="true" inert>
+                <span class="service-title">What’s included</span>
+                <span class="service-details">Review of basic device security, help configuring available protection and backup tools, and guidance on recovery options. Paid subscriptions or licences are separate.</span>
+                <span class="flip-hint">Select to see the price</span>
+              </span>
+            </button>
+            <button class="service-book-button" type="button" data-book-service="Security & Backup Setup">Book this service →</button>
           </article>
-          <article class="price-card">
-            <div>
-              <h2>Cloud & Technology Advice</h2>
-              <p class="muted">Help with cloud services, software, new equipment, and choosing the right technology.</p>
-            </div>
-            <p class="price"><strong>R450</strong><span>per hour</span></p>
+          <article class="service-flip">
+            <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Cloud and Technology Advice">
+              <span class="service-face service-face-front" aria-hidden="false">
+                <span>
+                  <span class="service-title">Cloud & Technology Advice</span>
+                  <span class="muted">Help with cloud services, software, and choosing new equipment.</span>
+                  <span class="flip-hint">Select to see what’s included</span>
+                </span>
+                <span class="price"><strong>R450</strong><span>per hour</span></span>
+              </span>
+              <span class="service-face service-face-back" aria-hidden="true" inert>
+                <span class="service-title">What’s included</span>
+                <span class="service-details">One-to-one guidance on selecting suitable devices or software, understanding cloud options, and planning a practical setup for home or work.</span>
+                <span class="flip-hint">Select to see the price</span>
+              </span>
+            </button>
+            <button class="service-book-button" type="button" data-book-service="Cloud & Technology Advice">Book this service →</button>
           </article>
         </section>
         <p class="pricing-note">These are recommended starting rates, not a final quote. Final cost depends on the time and complexity involved. Hardware, software licences, and any travel charges are quoted separately where applicable.</p>
-        <div class="actions pricing-actions">
-          <a class="button" href="https://wa.me/27820593491?text=Hi%20Solv-IT%2C%20I%27d%20like%20to%20book%20a%20service." target="_blank" rel="noopener noreferrer">Book a service →</a>
-        </div>
       </main>
+
+      <dialog class="booking-dialog" id="booking-dialog" aria-labelledby="booking-title">
+        <div class="booking-dialog-heading">
+          <div>
+            <div class="eyebrow">Solv-IT booking request</div>
+            <h2 id="booking-title">What can I help you with?</h2>
+          </div>
+          <button class="dialog-close" type="button" aria-label="Close booking form" data-close-booking>×</button>
+        </div>
+        <form class="contact-form booking-form" id="booking-form">
+          <div class="field">
+            <label for="booking-name">Your name</label>
+            <input id="booking-name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="booking-phone">Your phone or WhatsApp number</label>
+            <input id="booking-phone" name="phone" type="tel" autocomplete="tel" required />
+          </div>
+          <div class="field">
+            <label for="booking-service">Service</label>
+            <select id="booking-service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>Home & Business IT Support</option>
+              <option>Remote Desktop Support</option>
+              <option>Wi-Fi & Network Setup</option>
+              <option>Security & Backup Setup</option>
+              <option>Cloud & Technology Advice</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="booking-method">Preferred support method</label>
+            <select id="booking-method" name="method">
+              <option>Remote support</option>
+              <option>On-site support</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="booking-time">Preferred day or time (optional)</label>
+            <input id="booking-time" name="time" placeholder="For example, weekday afternoons" />
+          </div>
+          <div class="field">
+            <label for="booking-message">Briefly describe what you need</label>
+            <textarea id="booking-message" name="message" required></textarea>
+          </div>
+          <div class="actions booking-actions">
+            <button class="button" type="submit">Continue to WhatsApp →</button>
+            <button class="button secondary" type="button" data-close-booking>Cancel</button>
+          </div>
+          <p class="form-note">WhatsApp will open with your request filled in. Review it and tap Send to submit your booking.</p>
+        </form>
+      </dialog>
 
       <footer>© 2026 Solv-IT Computer Solutions · <a href="index.html">Back home</a></footer>
     </div>
+    <script>
+      const bookingDialog = document.getElementById('booking-dialog');
+      const bookingForm = document.getElementById('booking-form');
+      const bookingService = document.getElementById('booking-service');
+
+      function openBooking(service = '') {
+        bookingService.value = service;
+        bookingDialog.showModal();
+      }
+
+      document.querySelectorAll('[data-book-service]').forEach((button) => {
+        button.addEventListener('click', () => openBooking(button.dataset.bookService));
+      });
+
+      document.querySelectorAll('[data-close-booking]').forEach((button) => {
+        button.addEventListener('click', () => bookingDialog.close());
+      });
+
+      bookingDialog.addEventListener('click', (event) => {
+        if (event.target === bookingDialog) bookingDialog.close();
+      });
+
+      bookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(bookingForm);
+        const bookingMessage = [
+          'Hi Solv-IT, I’d like to book a service.',
+          '',
+          `Name: ${formData.get('name')}`,
+          `Phone/WhatsApp: ${formData.get('phone')}`,
+          `Service: ${formData.get('service')}`,
+          `Preferred support: ${formData.get('method')}`,
+          `Preferred day/time: ${formData.get('time') || 'Flexible'}`,
+          `What I need help with: ${formData.get('message')}`
+        ].join('\n');
+
+        window.location.assign(`https://wa.me/27820593491?text=${encodeURIComponent(bookingMessage)}`);
+      });
+
+      document.querySelectorAll('.service-flip .price-card').forEach((card) => {
+        card.dataset.service = card.querySelector('.service-face-front .service-title').textContent;
+        card.addEventListener('click', () => {
+          const flipped = card.getAttribute('aria-expanded') === 'true';
+          if (!flipped) {
+            document.querySelectorAll('.service-flip .price-card[aria-expanded="true"]').forEach((otherCard) => {
+              if (otherCard !== card) setServiceCardFlipped(otherCard, false);
+            });
+          }
+          setServiceCardFlipped(card, !flipped);
+        });
+      });
+
+      function setServiceCardFlipped(card, flipped) {
+        const front = card.querySelector('.service-face-front');
+        const back = card.querySelector('.service-face-back');
+        card.setAttribute('aria-expanded', String(flipped));
+        card.setAttribute('aria-label', `${flipped ? 'Show price for' : 'Show details for'} ${card.dataset.service}`);
+        card.closest('.service-flip').classList.toggle('is-flipped', flipped);
+        front.setAttribute('aria-hidden', String(flipped));
+        back.setAttribute('aria-hidden', String(!flipped));
+        front.toggleAttribute('inert', flipped);
+        back.toggleAttribute('inert', !flipped);
+      }
+    </script>
     <script src="site.js"></script>
   </body>
 </html>
