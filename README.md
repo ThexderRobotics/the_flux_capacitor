@@ -1,8 +1,9 @@
-# Under Construction Site
+# Solv-IT Computer Solutions
 
-A simple static placeholder page ready to deploy with Cloudflare Pages.
+Business website for Solv-IT Computer Solutions, with service and contact pages.
 
-## Cloudflare Pages settings
+## Cloudflare deployment
 
-- Build command: leave blank
-- Build output directory: `/`
+- The site assets are served from the repository root.
+- The Cloudflare Worker in `src/index.js` handles `/api/contact` and serves static assets.
+- Configure the `EMAIL` send-email binding in `wrangler.jsonc` before deploying.

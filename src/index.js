@@ -6,23 +6,32 @@ export default {
       if (request.method === 'OPTIONS') return new Response(null, { headers: corsHeaders() });
       if (request.method !== 'POST') return json({ error: 'Method not allowed.' }, 405);
 
+      let data;
       try {
-        const data = await request.json();
-        const name = String(data.name || '').trim().slice(0, 120);
-        const email = String(data.email || '').trim().slice(0, 200);
-        const message = String(data.message || '').trim().slice(0, 5000);
+        data = await request.json();
+      } catch {
+        return json({ error: 'Request body must be valid JSON.' }, 400);
+      }
+      if (!data || typeof data !== 'object' || Array.isArray(data)) {
+        return json({ error: 'Request body must be a JSON object.' }, 400);
+      }
 
-        if (data.website) return json({ ok: true });
-        if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          return json({ error: 'Please complete all fields correctly.' }, 400);
-        }
-        if (!env.EMAIL) return json({ error: 'Email service is not configured.' }, 503);
+      const name = typeof data.name === 'string' ? data.name.trim().slice(0, 120) : '';
+      const email = typeof data.email === 'string' ? data.email.trim().slice(0, 200) : '';
+      const message = typeof data.message === 'string' ? data.message.trim().slice(0, 5000) : '';
 
+      if (data.website) return json({ ok: true });
+      if (!name || !message || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        return json({ error: 'Please complete all fields correctly.' }, 400);
+      }
+      if (!env.EMAIL) return json({ error: 'Email service is not configured.' }, 503);
+
+      try {
         await env.EMAIL.send({
           from: 'mail@zanderbooyzen.com',
           to: 'zanderbooyzen@gmail.com',
           replyTo: email,
-          subject: `Website message from ${name}`,
+          subject: `Website message from ${name.replace(/[\r\n]+/g, ' ')}`,
           text: `${message}\n\nFrom: ${name} <${email}>`,
           html: `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p><p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>`,
         });
