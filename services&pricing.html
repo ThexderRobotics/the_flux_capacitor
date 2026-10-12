@@ -29,6 +29,22 @@
 
         <section class="price-list" aria-label="Services and recommended prices">
           <article class="service-flip">
+            <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Advice">
+              <span class="service-face service-face-front" aria-hidden="false">
+                <span>
+                  <span class="service-title">Advice</span>
+                  <span class="muted">A friendly first conversation to help you understand the best next step.</span>
+                </span>
+                <span class="price"><strong>Free</strong><span>initial advice</span></span>
+              </span>
+              <span class="service-face service-face-back" aria-hidden="true" inert>
+                <span class="service-title">What’s included</span>
+                <span class="service-details">A short conversation about your technology needs, possible solutions, and which Solv-IT service may be right for you. Any paid work is discussed and agreed before it begins.</span>
+              </span>
+            </button>
+            <button class="service-book-button" type="button" data-book-service="Advice">Book this service →</button>
+          </article>
+          <article class="service-flip">
             <button class="price-card" type="button" aria-expanded="false" aria-label="Show details for Home and Business IT Support">
               <span class="service-face service-face-front" aria-hidden="false">
                 <span>
@@ -169,6 +185,7 @@
             <label for="booking-service">Service</label>
             <select id="booking-service" name="service" required>
               <option value="">Choose a service</option>
+              <option>Advice</option>
               <option>Home & Business IT Support</option>
               <option>Remote Desktop Support</option>
               <option>Wi-Fi & Network Setup</option>

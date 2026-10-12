@@ -48,7 +48,7 @@ h2 { margin:0 0 10px; font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.04em; }
 .muted { color:var(--muted); }
 .hero { display:grid; grid-template-columns:1fr; gap:0; align-items:center; }
 .home-intro { max-width:900px; margin:0 auto; padding:clamp(24px,5vw,52px) clamp(18px,5vw,56px) clamp(28px,5vw,48px); border:1px solid rgba(20,43,69,.06); border-radius:28px; background:rgba(255,255,255,.82); box-shadow:0 22px 70px rgba(20,43,69,.06); text-align:center; }
-.hero-logo { display:block; width:min(100%,680px); height:auto; margin:-20px auto 8px; filter:drop-shadow(0 12px 20px rgba(20,43,69,.08)); animation:float 7s ease-in-out infinite; }
+.hero-logo { display:block; width:min(100%,680px); height:auto; margin:-20px auto 8px; filter:drop-shadow(0 12px 20px rgba(20,43,69,.08)); animation:logoBreathe 6s ease-in-out infinite; }
 .owner-contact { max-width:620px; margin:0 auto 54px; text-align:center; }
 .owner-contact h2 { margin:0 0 24px; color:var(--text); font-size:clamp(1.35rem,3vw,1.8rem); letter-spacing:-.04em; }
 .contact-links { display:flex; justify-content:center; gap:12px 30px; flex-wrap:wrap; margin:0; padding:0; list-style:none; }
@@ -136,7 +136,7 @@ footer { padding:18px 0 12px; border-top:none; color:var(--muted); font-size:13p
 footer a { text-decoration-color:#9db79f; text-underline-offset:4px; }
 @keyframes pageIn { from { opacity:0; } to { opacity:1; } }
 @keyframes riseIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-@keyframes float { 0%,100% { transform:rotate(3deg) translateY(0); } 50% { transform:rotate(1deg) translateY(-8px); } }
+@keyframes logoBreathe { 0%,100% { transform:scale(1); filter:drop-shadow(0 12px 20px rgba(20,43,69,.08)); } 50% { transform:scale(1.012); filter:drop-shadow(0 16px 28px rgba(0,169,160,.16)); } }
 @keyframes orbit { to { transform:rotate(360deg); } }
 @keyframes sway { 0%,100% { transform:rotate(7deg); } 50% { transform:rotate(12deg); } }
 @keyframes pulse { 0%,100% { box-shadow:0 0 0 5px #73a87922; } 50% { box-shadow:0 0 0 9px #73a87908; } }
