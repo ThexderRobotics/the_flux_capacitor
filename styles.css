@@ -99,6 +99,8 @@ h2 { margin:0 0 10px; font-size:clamp(1.8rem,4vw,3rem); letter-spacing:-.04em; }
 .direct-actions .button { white-space:nowrap; }
 .price-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; max-width:900px; }
 .service-flip { position:relative; min-height:220px; perspective:1200px; }
+.free-service .service-face-front { border-color:rgba(0,169,160,.35); background:linear-gradient(145deg,#f2fcfb,#fff); }
+.free-service .price strong { color:var(--accent); }
 .price-card { position:relative; display:block; width:100%; min-height:220px; padding:0; border:0; border-radius:18px; background:transparent; color:inherit; font:inherit; text-align:left; cursor:pointer; transform-style:preserve-3d; transition:transform .65s cubic-bezier(.2,.75,.25,1); }
 .service-flip.is-flipped .price-card { transform:rotateY(180deg); }
 @media (hover:hover) and (pointer:fine) { .service-flip:hover .price-card { transform:rotateY(180deg); } }
