@@ -1,7 +1,9 @@
 .git/
+.wrangler/
 .github/
 functions/
 src/
 wrangler.jsonc
 .assetsignore
+.gitignore
 README.md
