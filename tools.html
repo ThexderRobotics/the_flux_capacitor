@@ -13,7 +13,6 @@
       <header>
         <nav aria-label="Main navigation">
           <a href="index.html">Home</a>
-          <a href="about.html">About</a>
           <a href="services&amp;pricing.html">Services & Pricing</a>
           <a class="active" href="tools.html" aria-current="page">Tools</a>
           <a href="contact.html">Contact</a>
@@ -24,7 +23,7 @@
         <div class="page-intro">
           <div class="eyebrow">Tools</div>
           <h1>Handy tools for everyday tech.</h1>
-          <p class="intro">Generate a strong password or check how quickly a website responds. The ping tool measures HTTPS response time from your browser, not ICMP ping.</p>
+          <p class="intro">Use these privacy-friendly utilities for passwords, networks, data formats, and troubleshooting. They run locally in your browser except for website ping requests.</p>
         </div>
 
         <div class="faq-list tools-list">
@@ -56,11 +55,11 @@
             <summary>How secure is my password?</summary>
             <div class="faq-answer tool-answer">
               <section class="tool-card" aria-label="Password security checker">
-                <p class="muted">Get a quick, private estimate based on length and character variety.</p>
+                <p class="muted">See a rough estimate of how long an offline guessing attack might take.</p>
                 <label for="password-to-check">Password to check</label>
                 <input id="password-to-check" type="password" autocomplete="new-password" />
-                <p class="tool-result" id="password-strength" role="status" aria-live="polite">Enter a password to see an estimate.</p>
-                <p class="tool-note">This simple estimate runs locally in your browser. Do not enter a password you currently use.</p>
+                <p class="tool-result" id="password-strength" role="status" aria-live="polite">Enter a sample password to estimate its crack time.</p>
+                <p class="tool-note">This is a rough random-guessing estimate at 10 billion guesses per second, not a guarantee. Common, reused, or breached passwords can be cracked much faster. The check runs locally; do not enter a password you currently use.</p>
               </section>
             </div>
           </details>
@@ -129,33 +128,90 @@
               </section>
             </div>
           </details>
+
+          <details class="faq-item tool-item">
+            <summary>JSON formatter and validator</summary>
+            <div class="faq-answer tool-answer">
+              <section class="tool-card" aria-label="JSON formatter and validator">
+                <p class="muted">Validate JSON, format it for reading, or minify it for copying. Processing stays in your browser.</p>
+                <label for="json-input">JSON text</label>
+                <textarea id="json-input" spellcheck="false" placeholder='{"name":"Solv-IT","active":true}'></textarea>
+                <div class="actions">
+                  <button class="button" type="button" data-json-format="pretty">Format JSON</button>
+                  <button class="button secondary" type="button" data-json-format="compact">Minify JSON</button>
+                </div>
+                <p class="tool-result" id="json-status" role="status" aria-live="polite">Paste JSON and choose an action.</p>
+              </section>
+            </div>
+          </details>
+
+          <details class="faq-item tool-item">
+            <summary>URL and Base64 encoder</summary>
+            <div class="faq-answer tool-answer">
+              <section class="tool-card" aria-label="URL and Base64 encoder">
+                <p class="muted">Encode or decode text locally. Base64 is an encoding format, not encryption.</p>
+                <label for="encoded-input">Input text</label>
+                <textarea id="encoded-input" spellcheck="false" placeholder="Enter text to encode or decode"></textarea>
+                <div class="actions">
+                  <button class="button" type="button" data-convert="url-encode">URL encode</button>
+                  <button class="button secondary" type="button" data-convert="url-decode">URL decode</button>
+                  <button class="button secondary" type="button" data-convert="base64-encode">Base64 encode</button>
+                  <button class="button secondary" type="button" data-convert="base64-decode">Base64 decode</button>
+                </div>
+                <label for="encoded-output">Result</label>
+                <textarea id="encoded-output" readonly spellcheck="false"></textarea>
+                <p class="tool-result" id="encoding-status" role="status" aria-live="polite"></p>
+              </section>
+            </div>
+          </details>
+
+          <details class="faq-item tool-item">
+            <summary>Unix timestamp converter</summary>
+            <div class="faq-answer tool-answer">
+              <section class="tool-card" aria-label="Unix timestamp converter">
+                <p class="muted">Convert Unix time in seconds to a date, or convert a date and time to Unix seconds.</p>
+                <label for="unix-input">Unix timestamp (seconds)</label>
+                <input id="unix-input" type="number" step="any" placeholder="For example, 1735689600" />
+                <div class="actions">
+                  <button class="button" id="convert-unix" type="button">Convert timestamp</button>
+                  <button class="button secondary" id="current-unix" type="button">Use current time</button>
+                </div>
+                <p class="tool-result" id="unix-result" role="status" aria-live="polite">Enter a timestamp to convert it.</p>
+                <label for="date-to-unix">Date and time</label>
+                <input id="date-to-unix" type="datetime-local" />
+                <div class="actions">
+                  <button class="button secondary" id="convert-date" type="button">Convert date to timestamp</button>
+                </div>
+                <p class="tool-result" id="date-unix-result" role="status" aria-live="polite"></p>
+              </section>
+            </div>
+          </details>
         </div>
       </main>
 
-      <footer>© 2026 Solv-IT Computer Solutions · <a href="index.html">Back home</a></footer>
+      <footer>
+        <span class="brand-caption">Technology brands we support</span>
+        <div class="brand-logos" role="group" aria-label="Technology brands">
+          <span class="brand-logo"><img src="brandlogos/asus.png" alt="ASUS" /></span>
+          <span class="brand-logo"><img src="brandlogos/ASRock.png" alt="ASRock" /></span>
+          <span class="brand-logo"><img src="brandlogos/amd.png" alt="AMD" /></span>
+          <span class="brand-logo"><img src="brandlogos/westerndigital.png" alt="Western Digital" /></span>
+          <span class="brand-logo"><img src="brandlogos/seagate.png" alt="Seagate" /></span>
+          <span class="brand-logo"><img src="brandlogos/samsung.png" alt="Samsung" /></span>
+          <span class="brand-logo"><img src="brandlogos/nzxt.png" alt="NZXT" /></span>
+          <span class="brand-logo"><img src="brandlogos/nvidia.png" alt="NVIDIA" /></span>
+          <span class="brand-logo"><img src="brandlogos/Noctua.png" alt="Noctua" /></span>
+          <span class="brand-logo"><img src="brandlogos/msi.png" alt="MSI" /></span>
+          <span class="brand-logo"><img src="brandlogos/kingstontechnology.png" alt="Kingston Technology" /></span>
+          <span class="brand-logo"><img src="brandlogos/intel.png" alt="Intel" /></span>
+          <span class="brand-logo"><img src="brandlogos/GIGABYTE.png" alt="GIGABYTE" /></span>
+          <span class="brand-logo"><img src="brandlogos/corsair.png" alt="Corsair" /></span>
+          <span class="brand-logo"><img src="brandlogos/coolermaster.png" alt="Cooler Master" /></span>
+        </div>
+        <span class="footer-copy">© 2026 Solv-IT Computer Solutions · <a href="index.html">Back home</a></span>
+      </footer>
     </div>
     <script>
-      document.querySelectorAll('.tool-item').forEach((item) => {
-        let mouseActivatedSummary = false;
-        const summary = item.querySelector('summary');
-
-        item.addEventListener('mouseenter', () => {
-          item.open = true;
-        });
-        item.addEventListener('mouseleave', () => {
-          item.open = false;
-        });
-        item.addEventListener('pointerdown', (event) => {
-          mouseActivatedSummary = event.pointerType === 'mouse' && event.target.closest('summary') === summary;
-        });
-        item.addEventListener('click', (event) => {
-          if (!mouseActivatedSummary || event.target.closest('summary') !== summary) return;
-          mouseActivatedSummary = false;
-          event.preventDefault();
-          item.open = true;
-        });
-      });
-
       const passwordLength = document.getElementById('password-length');
       const passwordOutput = document.getElementById('generated-password');
       const passwordStatus = document.getElementById('password-status');
@@ -219,24 +275,48 @@
 
       const passwordToCheck = document.getElementById('password-to-check');
       const passwordStrength = document.getElementById('password-strength');
+      const guessesPerSecond = 10_000_000_000;
+      const log10 = (value) => Math.log(value) / Math.LN10;
+      const formatCrackTime = (log10Seconds) => {
+        if (log10Seconds < 0) return 'less than 1 second';
+        const units = [
+          { seconds: 31_557_600, name: 'year' },
+          { seconds: 86_400, name: 'day' },
+          { seconds: 3_600, name: 'hour' },
+          { seconds: 60, name: 'minute' },
+          { seconds: 1, name: 'second' }
+        ];
+        const unit = units.find((candidate) => log10Seconds >= log10(candidate.seconds));
+        if (!unit) return 'less than 1 second';
+        const logAmount = log10Seconds - log10(unit.seconds);
+        if (unit.name === 'year' && logAmount >= 6) return `around 10^${Math.round(logAmount)} years`;
+        const amount = 10 ** logAmount;
+        const roundedAmount = amount < 10 ? Number(amount.toFixed(1)) : Math.round(amount);
+        return `around ${roundedAmount.toLocaleString()} ${unit.name}${roundedAmount === 1 ? '' : 's'}`;
+      };
+
       passwordToCheck.addEventListener('input', () => {
         const password = passwordToCheck.value;
         if (!password) {
-          passwordStrength.textContent = 'Enter a password to see an estimate.';
+          passwordStrength.textContent = 'Enter a sample password to estimate its crack time.';
           return;
         }
-        const commonPassword = /^(password|123456|12345678|qwerty|letmein|admin)$/i.test(password)
-          || /^(.)\1+$/.test(password);
-        const characterTypes = [
-          /[a-z]/.test(password),
-          /[A-Z]/.test(password),
-          /\d/.test(password),
-          /[^A-Za-z0-9]/.test(password)
-        ].filter(Boolean).length;
-        const lengthScore = password.length >= 20 ? 4 : password.length >= 16 ? 3 : password.length >= 12 ? 2 : password.length >= 8 ? 1 : 0;
-        const score = commonPassword ? 0 : lengthScore + Math.min(Math.max(characterTypes - 1, 0), 2);
-        const estimate = score < 2 ? 'Weak' : score < 4 ? 'Fair' : score < 6 ? 'Good' : 'Strong';
-        passwordStrength.textContent = `${estimate} rough estimate · ${password.length} characters · ${characterTypes} character types`;
+        const hasLower = /[a-z]/.test(password);
+        const hasUpper = /[A-Z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasSymbol = /[^A-Za-z0-9]/.test(password);
+        const characterPool = (hasLower ? 26 : 0) + (hasUpper ? 26 : 0) + (hasNumber ? 10 : 0) + (hasSymbol ? 33 : 0);
+        const repeated = /^(.)\1+$/.test(password);
+        const commonOrSequential = /^(password|123456|12345678|qwerty|letmein|admin|welcome|iloveyou|0123456789|abcdefghijklmnopqrstuvwxyz)$/i.test(password);
+        const patternWarning = repeated || commonOrSequential;
+        const passwordLength = Array.from(password).length;
+        const log10AverageGuesses = patternWarning
+          ? 0
+          : passwordLength * log10(characterPool) - log10(2);
+        const crackTime = patternWarning
+          ? 'likely seconds or less (common or repeated pattern)'
+          : formatCrackTime(log10AverageGuesses - log10(guessesPerSecond));
+        passwordStrength.textContent = `Estimated crack time: ${crackTime} · Assumes 10 billion guesses/second and a randomly generated password.`;
       });
 
       const subnetInput = document.getElementById('subnet-input');
@@ -313,6 +393,89 @@
       storageValue.addEventListener('input', updateStorageConversion);
       storageUnit.addEventListener('change', updateStorageConversion);
       updateStorageConversion();
+
+      const jsonInput = document.getElementById('json-input');
+      const jsonStatus = document.getElementById('json-status');
+      document.querySelectorAll('[data-json-format]').forEach((button) => {
+        button.addEventListener('click', () => {
+          try {
+            const parsed = JSON.parse(jsonInput.value);
+            jsonInput.value = JSON.stringify(parsed, null, button.dataset.jsonFormat === 'pretty' ? 2 : 0);
+            jsonStatus.textContent = 'Valid JSON.';
+          } catch (error) {
+            jsonStatus.textContent = `Invalid JSON: ${error.message}`;
+          }
+        });
+      });
+
+      const encodedInput = document.getElementById('encoded-input');
+      const encodedOutput = document.getElementById('encoded-output');
+      const encodingStatus = document.getElementById('encoding-status');
+      const encodeUtf8Base64 = (value) => {
+        const bytes = new TextEncoder().encode(value);
+        let binary = '';
+        for (let offset = 0; offset < bytes.length; offset += 0x8000) {
+          binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
+        }
+        return btoa(binary);
+      };
+      const decodeUtf8Base64 = (value) => {
+        const binary = atob(value.trim());
+        const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+        return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+      };
+      document.querySelectorAll('[data-convert]').forEach((button) => {
+        button.addEventListener('click', () => {
+          try {
+            switch (button.dataset.convert) {
+              case 'url-encode':
+                encodedOutput.value = encodeURIComponent(encodedInput.value);
+                break;
+              case 'url-decode':
+                encodedOutput.value = decodeURIComponent(encodedInput.value);
+                break;
+              case 'base64-encode':
+                encodedOutput.value = encodeUtf8Base64(encodedInput.value);
+                break;
+              case 'base64-decode':
+                encodedOutput.value = decodeUtf8Base64(encodedInput.value);
+                break;
+              default:
+                throw new Error('Unknown conversion.');
+            }
+            encodingStatus.textContent = 'Conversion complete.';
+          } catch {
+            encodedOutput.value = '';
+            encodingStatus.textContent = 'Could not convert that input. Check the encoded text and try again.';
+          }
+        });
+      });
+
+      const unixInput = document.getElementById('unix-input');
+      const unixResult = document.getElementById('unix-result');
+      const dateToUnix = document.getElementById('date-to-unix');
+      const dateUnixResult = document.getElementById('date-unix-result');
+      document.getElementById('convert-unix').addEventListener('click', () => {
+        const timestamp = Number(unixInput.value);
+        const date = new Date(timestamp * 1000);
+        if (!unixInput.value.trim() || !Number.isFinite(timestamp) || !Number.isFinite(date.getTime())) {
+          unixResult.textContent = 'Enter a valid Unix timestamp in seconds.';
+          return;
+        }
+        unixResult.textContent = `${date.toISOString()} · ${date.toLocaleString()}`;
+      });
+      document.getElementById('current-unix').addEventListener('click', () => {
+        unixInput.value = String(Math.floor(Date.now() / 1000));
+        document.getElementById('convert-unix').click();
+      });
+      document.getElementById('convert-date').addEventListener('click', () => {
+        const date = new Date(dateToUnix.value);
+        if (!dateToUnix.value || !Number.isFinite(date.getTime())) {
+          dateUnixResult.textContent = 'Choose a valid date and time.';
+          return;
+        }
+        dateUnixResult.textContent = `${Math.floor(date.getTime() / 1000)} seconds`;
+      });
 
       const pingForm = document.getElementById('ping-form');
       const pingAddress = document.getElementById('ping-address');
