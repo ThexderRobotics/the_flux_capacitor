@@ -18,6 +18,7 @@ export default {
 
       const name = typeof data.name === 'string' ? data.name.trim().slice(0, 120) : '';
       const email = typeof data.email === 'string' ? data.email.trim().slice(0, 200) : '';
+      const service = typeof data.service === 'string' ? data.service.trim().slice(0, 120) : '';
       const message = typeof data.message === 'string' ? data.message.trim().slice(0, 5000) : '';
 
       if (data.website) return json({ ok: true });
@@ -32,8 +33,8 @@ export default {
           to: 'zanderbooyzen@gmail.com',
           replyTo: email,
           subject: `Website message from ${name.replace(/[\r\n]+/g, ' ')}`,
-          text: `${message}\n\nFrom: ${name} <${email}>`,
-          html: `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p><p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>`,
+          text: `${message}\n\nService: ${service || 'Not specified'}\nFrom: ${name} <${email}>`,
+          html: `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p><p><strong>Service:</strong> ${escapeHtml(service || 'Not specified')}<br><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>`,
         });
 
         return json({ ok: true });
