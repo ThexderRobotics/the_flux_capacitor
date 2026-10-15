@@ -16,7 +16,7 @@
       </header>
 
       <main id="main-content">
-        <section class="tools-heading page-intro"><div class="eyebrow">Solv-IT toolbox</div><h1>Useful tools. No fuss.</h1><p class="intro">Browse the full toolbox below, or jump into the quick workbench for browser-local conversions and checks.</p></section>
+        <section class="tools-heading page-intro"><div class="eyebrow">Solv-IT toolbox</div><h1>Useful tools. No fuss.</h1><p class="intro">Browse the full toolbox below for practical network, developer, file, data, and everyday IT utilities.</p></section>
 
         <section class="quick-workbench" id="quick-tools" aria-labelledby="quick-title"><div class="quick-heading"><div><div class="eyebrow">Quick workbench</div><h2 id="quick-title">Do something useful right now.</h2></div><span class="local-badge">Runs in your browser</span></div><div class="quick-tabs" role="tablist" aria-label="Quick tools"><button class="quick-tab is-active" type="button" data-quick-tab="text">Text tools</button><button class="quick-tab" type="button" data-quick-tab="json">JSON formatter</button><button class="quick-tab" type="button" data-quick-tab="url">URL parser</button><button class="quick-tab" type="button" data-quick-tab="random">Random generator</button><button class="quick-tab" type="button" data-quick-tab="time">Timestamp</button><button class="quick-tab" type="button" data-quick-tab="color">Color converter</button></div>
           <div class="quick-panel is-active" data-quick-panel="text"><label for="quick-text">Text</label><textarea id="quick-text" placeholder="Paste text here..."></textarea><div class="quick-actions"><button class="button button-primary" type="button" data-text-action="upper">UPPERCASE</button><button class="button button-quiet" type="button" data-text-action="lower">lowercase</button><button class="button button-quiet" type="button" data-text-action="title">Title Case</button><button class="button button-quiet" type="button" data-text-action="slug">slug-case</button></div><p class="quick-result" id="text-stats">0 words / 0 characters / 0 lines</p></div>
@@ -26,8 +26,6 @@
           <div class="quick-panel" data-quick-panel="time"><label for="quick-date">Date and time</label><input id="quick-date" type="datetime-local" /><div class="quick-actions"><button class="button button-primary" type="button" id="make-timestamp">Create timestamp</button><button class="button button-quiet" type="button" id="use-now">Use now</button></div><p class="quick-result" id="timestamp-result">Choose a date and time.</p></div>
           <div class="quick-panel" data-quick-panel="color"><label for="quick-color">Color</label><input id="quick-color" type="text" value="#00A9A0" placeholder="#00A9A0" /><div class="quick-actions"><button class="button button-primary" type="button" id="convert-color">Convert</button></div><dl class="quick-output" id="color-result"></dl></div>
         </section>
-
-        <section class="tool-studio" aria-labelledby="studio-title"><div class="studio-heading"><div><div class="eyebrow">Functional browser tools</div><h2 id="studio-title">Run a tool locally.</h2></div><span class="local-badge">No upload required</span></div><label class="studio-select-label" for="studio-select">Choose a tool</label><select id="studio-select"><option value="diff">Text diff checker</option><option value="hash">Hash generator</option><option value="filesize">File size calculator</option><option value="csv">CSV / JSON converter</option><option value="base64">Base64 encoder / decoder</option><option value="regex">Regex tester</option><option value="jwt">JWT decoder</option><option value="url">URL parser</option><option value="color">Color converter</option><option value="timestamp">Timestamp generator</option><option value="text">Text case and counter</option><option value="random">Random generator</option><option value="units">Unit converter</option><option value="markdown">Markdown previewer</option><option value="cidr">CIDR summarizer</option><option value="uptime">Uptime calculator</option></select><div id="studio-fields" class="studio-fields"></div><div class="studio-actions"><button class="button button-primary" id="studio-run" type="button">Run tool</button><button class="button button-quiet" id="studio-copy" type="button">Copy result</button></div><div id="studio-result" class="studio-result" role="status" aria-live="polite">Choose a tool above to begin.</div></section>
 
         <section class="tool-library" aria-labelledby="library-title"><div class="library-heading"><div><div class="eyebrow">Full toolbox</div><h2 id="library-title">Find the tool you need.</h2></div><div class="tool-search"><label for="tool-search">Search tools</label><input id="tool-search" type="search" placeholder="Search by name or category..." /></div></div>
           <div class="tool-library-grid">
@@ -74,6 +72,7 @@
       const studioSelect = document.querySelector('#studio-select');
       const studioFields = document.querySelector('#studio-fields');
       const studioResult = document.querySelector('#studio-result');
+      if (studioSelect) {
       const field = (label, control) => `<label>${label}${control}</label>`;
       const input = (id, type = 'text', value = '', extra = '') => `<input id="${id}" type="${type}" value="${value}" ${extra}>`;
       const textarea = (id, placeholder = '') => `<textarea id="${id}" rows="7" placeholder="${placeholder}"></textarea>`;
@@ -136,6 +135,7 @@
       document.querySelector('#studio-run').addEventListener('click', runStudioTool);
       document.querySelector('#studio-copy').addEventListener('click', async () => { await navigator.clipboard?.writeText(studioResult.textContent); document.querySelector('#studio-copy').textContent = 'Copied'; setTimeout(() => document.querySelector('#studio-copy').textContent = 'Copy result', 1200); });
       renderFields();
+      }
     </script>
     <script src="site.js"></script>
   </body>
