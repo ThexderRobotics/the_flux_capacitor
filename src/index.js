@@ -45,7 +45,7 @@ export default {
     }
 
     const assetResponse = await env.ASSETS.fetch(request);
-    if (url.pathname === '/tools.html' || url.pathname === '/tools') {
+    if (url.pathname === '/tools.html' || url.pathname === '/tools' || url.pathname === '/styles.css') {
       const headers = new Headers(assetResponse.headers);
       headers.set('Cache-Control', 'no-store, max-age=0');
       return new Response(assetResponse.body, { status: assetResponse.status, statusText: assetResponse.statusText, headers });
