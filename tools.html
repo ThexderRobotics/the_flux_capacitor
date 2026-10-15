@@ -79,7 +79,7 @@
     </script>
     <script>
       document.querySelector('.quick-workbench')?.remove();
-      const cardStudioSelect = document.querySelector('#studio-select');
+      const studioSelect = document.querySelector('#studio-select');
       const studioFields = document.querySelector('#studio-fields');
       const studioResult = document.querySelector('#studio-result');
       if (studioSelect) {
@@ -152,7 +152,7 @@
       const toolModalTitle = document.querySelector('#tool-modal-title');
       const toolModalDescription = document.querySelector('#tool-modal-description');
       const toolModalClose = document.querySelector('#tool-modal-close');
-      const studioSelect = document.querySelector('#studio-select');
+      const cardStudioSelect = document.querySelector('#studio-select');
       const supportedTools = { 'text diff checker':'diff', 'hash generator':'hash', 'file size calculator':'filesize', 'csv/json converter':'csv', 'base64 file encoder/decoder':'base64', 'regex tester':'regex', 'jwt decoder':'jwt', 'url parser':'url', 'color converter':'color', 'timestamp generator':'timestamp', 'text case converter':'text', 'word and character counter':'text', 'random generator':'random', 'unit converter':'units', 'markdown previewer':'markdown', 'cidr summarizer':'cidr', 'uptime calculator':'uptime' };
       document.querySelectorAll('.tool-directory-card').forEach((card) => {
         card.setAttribute('tabindex', '0');
