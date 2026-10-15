@@ -268,3 +268,16 @@ footer a { text-decoration-color:var(--accent); text-underline-offset:4px; }
 .homepage .brand-logo:hover img { filter:grayscale(0) opacity(1); }
 .homepage .footer-copy { color:#8898a1; font-size:.74rem; }
 @media (max-width:760px) { .homepage .brand-logos { grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; }.homepage .brand-logo { min-height:62px; border-left:1px solid #dfe7e5; }.homepage .brand-logo:nth-child(3n + 1) { border-left:1px solid #dfe7e5; }.homepage .brand-logo img { width:76px; height:36px; } }
+
+/* Shared site polish */
+body:not(:has(.homepage)) header { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.92); backdrop-filter:blur(14px); }
+body:not(:has(.homepage)) .nav-call { margin-left:6px; border-color:var(--teal); background:#e8f7f3; color:#126d69; font-weight:800; }
+body:not(:has(.homepage)) .nav-call:hover { border-color:var(--teal); background:var(--teal); color:#fff; }
+body:not(:has(.homepage)) main { padding-top:58px; }
+body:not(:has(.homepage)) .page-intro { padding:28px 22px 0; }
+body:not(:has(.homepage)) .page-intro h1 { color:var(--accent); font-weight:800; }
+body:not(:has(.homepage)) .page-intro .eyebrow { color:var(--teal); font-weight:700; }
+body:not(:has(.homepage)) .content-card, body:not(:has(.homepage)) .contact-direct, body:not(:has(.homepage)) .faq-item, body:not(:has(.homepage)) .service-face { border-color:#dfe7e5; box-shadow:0 12px 28px rgba(20,43,69,.06); }
+body:not(:has(.homepage)) .content-card:hover, body:not(:has(.homepage)) .contact-direct:hover { border-color:#9edbd1; box-shadow:0 18px 34px rgba(20,43,69,.09); }
+body:not(:has(.homepage)) footer { margin-top:40px; padding-top:28px; border-top:1px solid #dfe7e5; }
+@media (max-width:760px) { body:not(:has(.homepage)) header { position:relative; } body:not(:has(.homepage)) main { padding-top:30px; } body:not(:has(.homepage)) .page-intro { padding:16px 0 0; } body:not(:has(.homepage)) .nav-call { margin-left:0; } }
