@@ -44,6 +44,16 @@
           </div>
         </section>
       </main>
+      <section class="tool-modal" id="tool-modal" hidden aria-labelledby="tool-modal-title" role="dialog" aria-modal="true">
+        <div class="tool-modal-card">
+          <button class="tool-modal-close" id="tool-modal-close" type="button" aria-label="Close tool">&times;</button>
+          <div class="eyebrow">Solv-IT tool</div><h2 id="tool-modal-title">Tool</h2><p id="tool-modal-description"></p>
+          <div id="studio-fields" class="studio-fields"></div>
+          <div class="studio-actions"><button class="button button-primary" id="studio-run" type="button">Run tool</button><button class="button button-quiet" id="studio-copy" type="button">Copy result</button></div>
+          <div id="studio-result" class="studio-result" role="status" aria-live="polite">Choose a tool above to begin.</div>
+          <select id="studio-select" aria-label="Selected tool" hidden><option value="diff">Text diff checker</option><option value="hash">Hash generator</option><option value="filesize">File size calculator</option><option value="csv">CSV / JSON converter</option><option value="base64">Base64 encoder / decoder</option><option value="regex">Regex tester</option><option value="jwt">JWT decoder</option><option value="url">URL parser</option><option value="color">Color converter</option><option value="timestamp">Timestamp generator</option><option value="text">Text case and counter</option><option value="random">Random generator</option><option value="units">Unit converter</option><option value="markdown">Markdown previewer</option><option value="cidr">CIDR summarizer</option><option value="uptime">Uptime calculator</option></select>
+        </div>
+      </section>
       <footer><span class="footer-copy">(c) 2026 Solv-IT Computer Solutions - Practical tools for everyday tech.</span></footer>
     </div>
     <script>
@@ -136,6 +146,37 @@
       document.querySelector('#studio-copy').addEventListener('click', async () => { await navigator.clipboard?.writeText(studioResult.textContent); document.querySelector('#studio-copy').textContent = 'Copied'; setTimeout(() => document.querySelector('#studio-copy').textContent = 'Copy result', 1200); });
       renderFields();
       }
+    </script>
+    <script>
+      const toolModal = document.querySelector('#tool-modal');
+      const toolModalTitle = document.querySelector('#tool-modal-title');
+      const toolModalDescription = document.querySelector('#tool-modal-description');
+      const toolModalClose = document.querySelector('#tool-modal-close');
+      const studioSelect = document.querySelector('#studio-select');
+      const supportedTools = { 'text diff checker':'diff', 'hash generator':'hash', 'file size calculator':'filesize', 'csv/json converter':'csv', 'base64 file encoder/decoder':'base64', 'regex tester':'regex', 'jwt decoder':'jwt', 'url parser':'url', 'color converter':'color', 'timestamp generator':'timestamp', 'text case converter':'text', 'word and character counter':'text', 'random generator':'random', 'unit converter':'units', 'markdown previewer':'markdown', 'cidr summarizer':'cidr', 'uptime calculator':'uptime' };
+      document.querySelectorAll('.tool-directory-card').forEach((card) => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        const openTool = () => {
+          const title = card.querySelector('h4')?.textContent.trim() || 'Tool';
+          const description = card.querySelector('p')?.textContent.trim() || '';
+          const key = title.toLowerCase();
+          toolModalTitle.textContent = title;
+          toolModalDescription.textContent = description;
+          toolModal.hidden = false;
+          document.body.classList.add('modal-open');
+          const action = document.querySelector('#studio-run');
+          const copy = document.querySelector('#studio-copy');
+          if (supportedTools[key]) { studioSelect.value = supportedTools[key]; studioSelect.dispatchEvent(new Event('change')); action.disabled = false; copy.disabled = false; } else { document.querySelector('#studio-fields').innerHTML = '<p class="tool-modal-note">This tool is now open in the toolbox. Its dedicated checker is being connected next.</p>'; document.querySelector('#studio-result').textContent = 'Tool ready.'; action.disabled = true; copy.disabled = true; }
+          toolModalClose.focus();
+        };
+        card.addEventListener('click', openTool);
+        card.addEventListener('keydown', (event) => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openTool(); } });
+      });
+      const closeTool = () => { toolModal.hidden = true; document.body.classList.remove('modal-open'); };
+      toolModalClose.addEventListener('click', closeTool);
+      toolModal.addEventListener('click', (event) => { if (event.target === toolModal) closeTool(); });
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !toolModal.hidden) closeTool(); });
     </script>
     <script src="site.js"></script>
   </body>
