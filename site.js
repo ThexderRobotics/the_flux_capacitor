@@ -33,3 +33,42 @@
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 })();
+
+(() => {
+  const catalog = document.querySelector('.product-grid');
+  if (!catalog) return;
+
+  const cards = [...catalog.querySelectorAll('.product-card')];
+  const filters = [...document.querySelectorAll('.catalog-filter')];
+  const search = document.querySelector('#product-search');
+  const quoteCount = document.querySelector('#quote-count');
+  const quoteSummary = document.querySelector('#quote-summary');
+  const quoteItems = new Set();
+
+  const render = () => {
+    const activeFilter = document.querySelector('.catalog-filter.is-active')?.dataset.filter || 'all';
+    const query = (search?.value || '').trim().toLowerCase();
+    cards.forEach((card) => {
+      const matchesFilter = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const matchesSearch = !query || card.dataset.name.includes(query);
+      card.hidden = !(matchesFilter && matchesSearch);
+    });
+  };
+
+  filters.forEach((filter) => filter.addEventListener('click', () => {
+    filters.forEach((item) => item.classList.toggle('is-active', item === filter));
+    render();
+  }));
+  search?.addEventListener('input', render);
+
+  catalog.addEventListener('click', (event) => {
+    const button = event.target.closest('.quote-button');
+    if (!button) return;
+    const item = button.dataset.item;
+    quoteItems.add(item);
+    button.classList.add('is-added');
+    button.innerHTML = 'Added to quote <span aria-hidden="true">✓</span>';
+    if (quoteCount) quoteCount.textContent = quoteItems.size;
+    if (quoteSummary) quoteSummary.textContent = `${[...quoteItems].join(', ')} selected. Request a quote when you are ready.`;
+  });
+})();
