@@ -3,546 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Generate a secure password or check a website's HTTP response time with Solv-IT's browser-based tools." />
+    <meta name="description" content="Practical network, developer, file, data, and everyday IT tools from Solv-IT." />
     <title>Solv-IT | Tools</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
-    <div class="wrap">
+    <div class="wrap tools-page">
       <header>
         <a class="site-brand" href="index.html" aria-label="Solv-IT home"><img class="site-brand-logo" src="logo-transparent.png" alt="" /><span>Solv</span><b>-IT</b><small>Computer Solutions</small></a>
-        <nav aria-label="Main navigation">
-          <a href="index.html">Home</a>
-          <a href="services&amp;pricing.html">Services & Pricing</a>
-          <a href="sales.html">Shop</a>
-          <a href="about.html">About</a>
-          <a class="active" href="tools.html" aria-current="page">Tools</a>
-          <a href="contact.html">Contact</a>
-          <a class="nav-call" href="tel:0820593491">Call 082 059 3491</a>
-        </nav>
+        <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="services&amp;pricing.html">Services &amp; Pricing</a><a href="sales.html">Shop</a><a href="about.html">About</a><a class="active" href="tools.html" aria-current="page">Tools</a><a href="contact.html">Contact</a><a class="nav-call" href="tel:0820593491">Call 082 059 3491</a></nav>
       </header>
 
       <main id="main-content">
-        <div class="page-intro">
-          <div class="eyebrow">Tools</div>
-          <h1>Handy tools for everyday tech.</h1>
-          <p class="intro">Use these privacy-friendly utilities for passwords, networks, data formats, and troubleshooting. They run locally in your browser except for website ping requests.</p>
-        </div>
+        <section class="tools-heading page-intro"><div class="eyebrow">Solv-IT toolbox</div><h1>Useful tools. No fuss.</h1><p class="intro">Browse the full toolbox below, or jump into the quick workbench for browser-local conversions and checks.</p></section>
 
-        <div class="faq-list tools-list">
-          <details class="faq-item tool-item">
-            <summary>Password generator</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="Password generator">
-                <p class="muted">Create a random password using your selected character types.</p>
-                <label for="password-length">Password length</label>
-                <input id="password-length" type="number" min="8" max="64" value="20" />
-                <div class="tool-options" aria-label="Password character options">
-                  <label><input type="checkbox" name="password-set" value="lower" checked /> Lowercase</label>
-                  <label><input type="checkbox" name="password-set" value="upper" checked /> Uppercase</label>
-                  <label><input type="checkbox" name="password-set" value="numbers" checked /> Numbers</label>
-                  <label><input type="checkbox" name="password-set" value="symbols" checked /> Symbols</label>
-                </div>
-                <label for="generated-password">Generated password</label>
-                <input id="generated-password" type="text" readonly autocomplete="off" />
-                <div class="actions">
-                  <button class="button" id="generate-password" type="button">Generate password</button>
-                  <button class="button secondary" id="copy-password" type="button" disabled>Copy</button>
-                </div>
-                <p class="tool-result" id="password-status" role="status" aria-live="polite"></p>
-              </section>
-            </div>
-          </details>
+        <section class="quick-workbench" id="quick-tools" aria-labelledby="quick-title"><div class="quick-heading"><div><div class="eyebrow">Quick workbench</div><h2 id="quick-title">Do something useful right now.</h2></div><span class="local-badge">Runs in your browser</span></div><div class="quick-tabs" role="tablist" aria-label="Quick tools"><button class="quick-tab is-active" type="button" data-quick-tab="text">Text tools</button><button class="quick-tab" type="button" data-quick-tab="json">JSON formatter</button><button class="quick-tab" type="button" data-quick-tab="url">URL parser</button><button class="quick-tab" type="button" data-quick-tab="random">Random generator</button><button class="quick-tab" type="button" data-quick-tab="time">Timestamp</button><button class="quick-tab" type="button" data-quick-tab="color">Color converter</button></div>
+          <div class="quick-panel is-active" data-quick-panel="text"><label for="quick-text">Text</label><textarea id="quick-text" placeholder="Paste text here..."></textarea><div class="quick-actions"><button class="button button-primary" type="button" data-text-action="upper">UPPERCASE</button><button class="button button-quiet" type="button" data-text-action="lower">lowercase</button><button class="button button-quiet" type="button" data-text-action="title">Title Case</button><button class="button button-quiet" type="button" data-text-action="slug">slug-case</button></div><p class="quick-result" id="text-stats">0 words / 0 characters / 0 lines</p></div>
+          <div class="quick-panel" data-quick-panel="json"><label for="quick-json">JSON</label><textarea id="quick-json" spellcheck="false" placeholder='{"name":"Solv-IT","active":true}'></textarea><div class="quick-actions"><button class="button button-primary" type="button" data-json-action="pretty">Format JSON</button><button class="button button-quiet" type="button" data-json-action="compact">Minify JSON</button></div><p class="quick-result" id="json-result">Paste JSON and choose an action.</p></div>
+          <div class="quick-panel" data-quick-panel="url"><label for="quick-url">URL</label><input id="quick-url" type="url" placeholder="https://example.com:443/path?query=value#section" /><div class="quick-actions"><button class="button button-primary" type="button" id="parse-url">Parse URL</button></div><dl class="quick-output" id="url-result"></dl></div>
+          <div class="quick-panel" data-quick-panel="random"><label for="random-type">Generate</label><select id="random-type"><option value="uuid">UUID</option><option value="pin">PIN</option><option value="username">Username</option><option value="passphrase">Passphrase</option></select><div class="quick-actions"><button class="button button-primary" type="button" id="generate-random">Generate</button></div><output class="quick-output single" id="random-result">Ready.</output></div>
+          <div class="quick-panel" data-quick-panel="time"><label for="quick-date">Date and time</label><input id="quick-date" type="datetime-local" /><div class="quick-actions"><button class="button button-primary" type="button" id="make-timestamp">Create timestamp</button><button class="button button-quiet" type="button" id="use-now">Use now</button></div><p class="quick-result" id="timestamp-result">Choose a date and time.</p></div>
+          <div class="quick-panel" data-quick-panel="color"><label for="quick-color">Color</label><input id="quick-color" type="text" value="#00A9A0" placeholder="#00A9A0" /><div class="quick-actions"><button class="button button-primary" type="button" id="convert-color">Convert</button></div><dl class="quick-output" id="color-result"></dl></div>
+        </section>
 
-          <details class="faq-item tool-item">
-            <summary>How secure is my password?</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="Password security checker">
-                <p class="muted">See a rough estimate of how long an offline guessing attack might take.</p>
-                <label for="password-to-check">Password to check</label>
-                <input id="password-to-check" type="password" autocomplete="new-password" />
-                <p class="tool-result" id="password-strength" role="status" aria-live="polite">Enter a sample password to estimate its crack time.</p>
-                <p class="tool-note">This is a rough random-guessing estimate at 10 billion guesses per second, not a guarantee. Common, reused, or breached passwords can be cracked much faster. The check runs locally; do not enter a password you currently use.</p>
-              </section>
-            </div>
-          </details>
-
-          <details class="faq-item tool-item">
-            <summary>Website ping</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="Website ping">
-                <p class="muted">Measure how quickly your browser reaches a website over HTTPS. This is an HTTP timing check, not an ICMP ping.</p>
-                <form id="ping-form">
-                  <label for="ping-address">Website address</label>
-                  <input id="ping-address" type="text" value="https://www.google.co.za" placeholder="https://www.google.co.za" autocomplete="url" maxlength="2048" required />
-                  <div class="actions">
-                    <button class="button" id="ping-button" type="submit">Run ping</button>
-                  </div>
-                </form>
-                <p class="tool-result" id="ping-status" role="status" aria-live="polite">Runs four HTTPS checks. ICMP ping is not available in web browsers.</p>
-                <ol class="ping-results" id="ping-results" aria-label="Ping results"></ol>
-                <p class="tool-note">Four small HTTPS requests are sent directly from your browser to the entered site. Results can vary with network conditions and the site's response.</p>
-              </section>
-            </div>
-          </details>
-
-          <details class="faq-item tool-item">
-            <summary>IPv4 subnet calculator</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="IPv4 subnet calculator">
-                <p class="muted">Find the network, broadcast address, and host range from an IPv4 address and CIDR prefix.</p>
-                <label for="subnet-input">IPv4 address and prefix</label>
-                <input id="subnet-input" type="text" value="192.168.1.10/24" placeholder="192.168.1.10/24" autocomplete="off" />
-                <div class="actions">
-                  <button class="button" id="calculate-subnet" type="button">Calculate subnet</button>
-                </div>
-                <p class="tool-result" id="subnet-status" role="status" aria-live="polite"></p>
-                <dl class="tool-output" id="subnet-output" hidden>
-                  <div><dt>Network</dt><dd id="subnet-network"></dd></div>
-                  <div><dt>Subnet mask</dt><dd id="subnet-mask"></dd></div>
-                  <div><dt>Broadcast</dt><dd id="subnet-broadcast"></dd></div>
-                  <div><dt>Usable host range</dt><dd id="subnet-host-range"></dd></div>
-                  <div><dt>Usable hosts</dt><dd id="subnet-host-count"></dd></div>
-                </dl>
-              </section>
-            </div>
-          </details>
-
-          <details class="faq-item tool-item">
-            <summary>Storage unit converter</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="Storage unit converter">
-                <p class="muted">Convert between decimal (KB, MB, GB) and binary (KiB, MiB, GiB) storage units.</p>
-                <label for="storage-value">Value</label>
-                <input id="storage-value" type="number" min="0" step="any" value="1" />
-                <label for="storage-unit">Unit</label>
-                <select id="storage-unit">
-                  <option value="1">B (bytes)</option>
-                  <option value="1000">KB</option>
-                  <option value="1000000">MB</option>
-                  <option value="1000000000">GB</option>
-                  <option value="1000000000000">TB</option>
-                  <option value="1024">KiB</option>
-                  <option value="1048576">MiB</option>
-                  <option value="1073741824">GiB</option>
-                  <option value="1099511627776">TiB</option>
-                </select>
-                <div class="tool-output" id="storage-output" role="status" aria-live="polite"></div>
-              </section>
-            </div>
-          </details>
-
-          <details class="faq-item tool-item">
-            <summary>JSON formatter and validator</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="JSON formatter and validator">
-                <p class="muted">Validate JSON, format it for reading, or minify it for copying. Processing stays in your browser.</p>
-                <label for="json-input">JSON text</label>
-                <textarea id="json-input" spellcheck="false" placeholder='{"name":"Solv-IT","active":true}'></textarea>
-                <div class="actions">
-                  <button class="button" type="button" data-json-format="pretty">Format JSON</button>
-                  <button class="button secondary" type="button" data-json-format="compact">Minify JSON</button>
-                </div>
-                <p class="tool-result" id="json-status" role="status" aria-live="polite">Paste JSON and choose an action.</p>
-              </section>
-            </div>
-          </details>
-
-          <details class="faq-item tool-item">
-            <summary>URL and Base64 encoder</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="URL and Base64 encoder">
-                <p class="muted">Encode or decode text locally. Base64 is an encoding format, not encryption.</p>
-                <label for="encoded-input">Input text</label>
-                <textarea id="encoded-input" spellcheck="false" placeholder="Enter text to encode or decode"></textarea>
-                <div class="actions">
-                  <button class="button" type="button" data-convert="url-encode">URL encode</button>
-                  <button class="button secondary" type="button" data-convert="url-decode">URL decode</button>
-                  <button class="button secondary" type="button" data-convert="base64-encode">Base64 encode</button>
-                  <button class="button secondary" type="button" data-convert="base64-decode">Base64 decode</button>
-                </div>
-                <label for="encoded-output">Result</label>
-                <textarea id="encoded-output" readonly spellcheck="false"></textarea>
-                <p class="tool-result" id="encoding-status" role="status" aria-live="polite"></p>
-              </section>
-            </div>
-          </details>
-
-          <details class="faq-item tool-item">
-            <summary>Unix timestamp converter</summary>
-            <div class="faq-answer tool-answer">
-              <section class="tool-card" aria-label="Unix timestamp converter">
-                <p class="muted">Convert Unix time in seconds to a date, or convert a date and time to Unix seconds.</p>
-                <label for="unix-input">Unix timestamp (seconds)</label>
-                <input id="unix-input" type="number" step="any" placeholder="For example, 1735689600" />
-                <div class="actions">
-                  <button class="button" id="convert-unix" type="button">Convert timestamp</button>
-                  <button class="button secondary" id="current-unix" type="button">Use current time</button>
-                </div>
-                <p class="tool-result" id="unix-result" role="status" aria-live="polite">Enter a timestamp to convert it.</p>
-                <label for="date-to-unix">Date and time</label>
-                <input id="date-to-unix" type="datetime-local" />
-                <div class="actions">
-                  <button class="button secondary" id="convert-date" type="button">Convert date to timestamp</button>
-                </div>
-                <p class="tool-result" id="date-unix-result" role="status" aria-live="polite"></p>
-              </section>
-            </div>
-          </details>
-        </div>
+        <section class="tool-library" aria-labelledby="library-title"><div class="library-heading"><div><div class="eyebrow">Full toolbox</div><h2 id="library-title">Find the tool you need.</h2></div><div class="tool-search"><label for="tool-search">Search tools</label><input id="tool-search" type="search" placeholder="Search by name or category..." /></div></div>
+          <div class="tool-library-grid">
+            <section class="tool-category" data-tool-group="network"><div class="tool-category-heading"><span class="tool-category-icon">01</span><div><h3>Network &amp; security</h3><p>Diagnostics, addresses, records, and connectivity checks.</p></div></div><div class="tool-cards">
+              <article class="tool-directory-card" data-tool-name="wi-fi speed test network"><span>NETWORK</span><h4>Wi-Fi speed test</h4><p>Measure download, upload, latency, and jitter.</p></article><article class="tool-directory-card" data-tool-name="ip address checker network"><span>NETWORK</span><h4>IP address checker</h4><p>Show public IP, IPv4/IPv6, ISP, and approximate location.</p></article><article class="tool-directory-card" data-tool-name="dns lookup network"><span>NETWORK</span><h4>DNS lookup</h4><p>Query A, AAAA, MX, TXT, CNAME, and NS records.</p></article><article class="tool-directory-card" data-tool-name="dns propagation checker network"><span>NETWORK</span><h4>DNS propagation checker</h4><p>Compare how records resolve from different locations.</p></article><article class="tool-directory-card" data-tool-name="ssl certificate checker security"><span>SECURITY</span><h4>SSL certificate checker</h4><p>Show validity, expiry date, issuer, and domain.</p></article><article class="tool-directory-card" data-tool-name="port checker network"><span>NETWORK</span><h4>Port checker</h4><p>Test whether a selected TCP port is reachable.</p></article><article class="tool-directory-card" data-tool-name="mac address lookup network"><span>NETWORK</span><h4>MAC address lookup</h4><p>Identify the manufacturer from a MAC address.</p></article><article class="tool-directory-card" data-tool-name="ipv4 ipv6 converter network"><span>NETWORK</span><h4>IPv4/IPv6 converter</h4><p>Convert addresses and explain IPv6 notation.</p></article><article class="tool-directory-card" data-tool-name="cidr summarizer network"><span>NETWORK</span><h4>CIDR summarizer</h4><p>Combine networks into the smallest possible range.</p></article><article class="tool-directory-card" data-tool-name="text diff checker developer"><span>DEVELOPER</span><h4>Text diff checker</h4><p>Compare two blocks of text and highlight differences.</p></article>
+            </div></section>
+            <section class="tool-category" data-tool-group="files"><div class="tool-category-heading"><span class="tool-category-icon">02</span><div><h3>File &amp; data utilities</h3><p>Convert, compress, encode, and inspect files locally.</p></div></div><div class="tool-cards">
+              <article class="tool-directory-card" data-tool-name="hash generator file data"><span>FILE</span><h4>Hash generator</h4><p>Calculate MD5, SHA-1, SHA-256, SHA-512, and file hashes.</p></article><article class="tool-directory-card" data-tool-name="file size calculator data"><span>DATA</span><h4>File size calculator</h4><p>Estimate download and upload times for a file.</p></article><article class="tool-directory-card" data-tool-name="image compressor file"><span>FILE</span><h4>Image compressor</h4><p>Compress images locally in the browser.</p></article><article class="tool-directory-card" data-tool-name="image format converter file"><span>FILE</span><h4>Image format converter</h4><p>Convert PNG, JPG, WebP, and GIF.</p></article><article class="tool-directory-card" data-tool-name="qr code generator scanner data"><span>DATA</span><h4>QR code generator and scanner</h4><p>Create QR codes for URLs, Wi-Fi, and text.</p></article><article class="tool-directory-card" data-tool-name="csv json converter data"><span>DATA</span><h4>CSV/JSON converter</h4><p>Convert between CSV, JSON, and formatted tables.</p></article><article class="tool-directory-card" data-tool-name="yaml json converter developer"><span>DEVELOPER</span><h4>YAML/JSON converter</h4><p>Convert configuration files between YAML and JSON.</p></article><article class="tool-directory-card" data-tool-name="base64 file encoder decoder data"><span>DATA</span><h4>Base64 file encoder/decoder</h4><p>Handle files as well as text.</p></article>
+            </div></section>
+            <section class="tool-category" data-tool-group="developer"><div class="tool-category-heading"><span class="tool-category-icon">03</span><div><h3>Developer tools</h3><p>Small utilities for code, URLs, colors, time, and APIs.</p></div></div><div class="tool-cards">
+              <article class="tool-directory-card" data-tool-name="regex tester developer"><span>CODE</span><h4>Regex tester</h4><p>Test regular expressions with explanations.</p></article><article class="tool-directory-card" data-tool-name="jwt decoder developer"><span>CODE</span><h4>JWT decoder</h4><p>Decode JWT headers and payloads locally.</p></article><article class="tool-directory-card" data-tool-name="html css javascript formatter developer"><span>CODE</span><h4>HTML/CSS/JavaScript formatter</h4><p>Beautify and minify code.</p></article><article class="tool-directory-card" data-tool-name="url parser developer"><span>CODE</span><h4>URL parser</h4><p>Break a URL into protocol, domain, port, path, query, and fragment.</p></article><article class="tool-directory-card" data-tool-name="cron expression helper developer"><span>CODE</span><h4>Cron expression helper</h4><p>Build and explain scheduled-task expressions.</p></article><article class="tool-directory-card" data-tool-name="color converter developer"><span>CODE</span><h4>Color converter</h4><p>Convert HEX, RGB, HSL, and CMYK values.</p></article><article class="tool-directory-card" data-tool-name="timestamp generator developer"><span>CODE</span><h4>Timestamp generator</h4><p>Generate Unix timestamps for a selected date and time.</p></article><article class="tool-directory-card" data-tool-name="http headers checker developer security"><span>SECURITY</span><h4>HTTP headers checker</h4><p>Display CSP, HSTS, X-Frame-Options, and other headers.</p></article>
+            </div></section>
+            <section class="tool-category" data-tool-group="everyday"><div class="tool-category-heading"><span class="tool-category-icon">04</span><div><h3>Everyday IT</h3><p>Writing, time, data, accessibility, and daily productivity helpers.</p></div></div><div class="tool-cards">
+              <article class="tool-directory-card" data-tool-name="text case converter everyday"><span>TEXT</span><h4>Text case converter</h4><p>Uppercase, lowercase, title, sentence, and slug case.</p></article><article class="tool-directory-card" data-tool-name="word character counter everyday"><span>TEXT</span><h4>Word and character counter</h4><p>Include reading time and line count.</p></article><article class="tool-directory-card" data-tool-name="random generator everyday"><span>UTILITY</span><h4>Random generator</h4><p>Generate numbers, usernames, UUIDs, PINs, and passphrases.</p></article><article class="tool-directory-card" data-tool-name="unit converter everyday"><span>UTILITY</span><h4>Unit converter</h4><p>Temperature, distance, weight, speed, and data transfer units.</p></article><article class="tool-directory-card" data-tool-name="date time converter everyday"><span>TIME</span><h4>Date and time converter</h4><p>Convert between time zones.</p></article><article class="tool-directory-card" data-tool-name="markdown previewer everyday developer"><span>TEXT</span><h4>Markdown previewer</h4><p>Render Markdown locally.</p></article><article class="tool-directory-card" data-tool-name="keyboard shortcut reference everyday"><span>REFERENCE</span><h4>Keyboard shortcut reference</h4><p>Windows, macOS, browser, and common apps.</p></article><article class="tool-directory-card" data-tool-name="uptime calculator everyday"><span>UTILITY</span><h4>Uptime calculator</h4><p>Convert availability percentages into allowed downtime.</p></article>
+            </div></section>
+          </div>
+        </section>
       </main>
-
-      <footer>
-        <span class="brand-caption">Technology brands we support</span>
-        <div class="brand-logos" role="group" aria-label="Technology brands">
-          <span class="brand-logo"><img src="brandlogos/asus.png" alt="ASUS" /></span>
-          <span class="brand-logo"><img src="brandlogos/ASRock.png" alt="ASRock" /></span>
-          <span class="brand-logo"><img src="brandlogos/amd.png" alt="AMD" /></span>
-          <span class="brand-logo"><img src="brandlogos/westerndigital.png" alt="Western Digital" /></span>
-          <span class="brand-logo"><img src="brandlogos/seagate.png" alt="Seagate" /></span>
-          <span class="brand-logo"><img src="brandlogos/samsung.png" alt="Samsung" /></span>
-          <span class="brand-logo"><img src="brandlogos/nzxt.png" alt="NZXT" /></span>
-          <span class="brand-logo"><img src="brandlogos/nvidia.png" alt="NVIDIA" /></span>
-          <span class="brand-logo"><img src="brandlogos/Noctua.png" alt="Noctua" /></span>
-          <span class="brand-logo"><img src="brandlogos/msi.png" alt="MSI" /></span>
-          <span class="brand-logo"><img src="brandlogos/kingstontechnology.png" alt="Kingston Technology" /></span>
-          <span class="brand-logo"><img src="brandlogos/intel.png" alt="Intel" /></span>
-          <span class="brand-logo"><img src="brandlogos/GIGABYTE.png" alt="GIGABYTE" /></span>
-          <span class="brand-logo"><img src="brandlogos/corsair.png" alt="Corsair" /></span>
-          <span class="brand-logo"><img src="brandlogos/coolermaster.png" alt="Cooler Master" /></span>
-        </div>
-        <span class="footer-copy">© 2026 Solv-IT Computer Solutions · <a href="index.html">Back home</a></span>
-      </footer>
+      <footer><span class="footer-copy">(c) 2026 Solv-IT Computer Solutions - Practical tools for everyday tech.</span></footer>
     </div>
     <script>
-      const passwordLength = document.getElementById('password-length');
-      const passwordOutput = document.getElementById('generated-password');
-      const passwordStatus = document.getElementById('password-status');
-      const copyPasswordButton = document.getElementById('copy-password');
-      const characterSets = {
-        lower: 'abcdefghijklmnopqrstuvwxyz',
-        upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-        numbers: '0123456789',
-        symbols: '!@#$%^&*()-_=+[]{}:,.?'
-      };
-
-      function secureIndex(max) {
-        const range = 0x100000000;
-        const limit = Math.floor(range / max) * max;
-        const values = new Uint32Array(1);
-        do {
-          crypto.getRandomValues(values);
-        } while (values[0] >= limit);
-        return values[0] % max;
-      }
-
-      document.getElementById('generate-password').addEventListener('click', () => {
-        const length = Number(passwordLength.value);
-        const selectedSets = [...document.querySelectorAll('input[name="password-set"]:checked')]
-          .map((option) => characterSets[option.value]);
-        if (!Number.isInteger(length) || length < 8 || length > 64) {
-          passwordStatus.textContent = 'Choose a password length between 8 and 64.';
-          return;
-        }
-        if (selectedSets.length === 0) {
-          passwordStatus.textContent = 'Select at least one character type.';
-          return;
-        }
-        if (length < selectedSets.length) {
-          passwordStatus.textContent = 'Increase the length to fit each selected character type.';
-          return;
-        }
-
-        const allCharacters = selectedSets.join('');
-        const password = selectedSets.map((set) => set[secureIndex(set.length)]);
-        while (password.length < length) {
-          password.push(allCharacters[secureIndex(allCharacters.length)]);
-        }
-        for (let index = password.length - 1; index > 0; index -= 1) {
-          const swapIndex = secureIndex(index + 1);
-          [password[index], password[swapIndex]] = [password[swapIndex], password[index]];
-        }
-        passwordOutput.value = password.join('');
-        copyPasswordButton.disabled = false;
-        passwordStatus.textContent = 'Password generated.';
-      });
-
-      copyPasswordButton.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(passwordOutput.value);
-          passwordStatus.textContent = 'Password copied to clipboard.';
-        } catch {
-          passwordStatus.textContent = 'Could not copy automatically. Select the password and copy it manually.';
-        }
-      });
-
-      const passwordToCheck = document.getElementById('password-to-check');
-      const passwordStrength = document.getElementById('password-strength');
-      const guessesPerSecond = 10_000_000_000;
-      const log10 = (value) => Math.log(value) / Math.LN10;
-      const formatCrackTime = (log10Seconds) => {
-        if (log10Seconds < 0) return 'less than 1 second';
-        const units = [
-          { seconds: 31_557_600, name: 'year' },
-          { seconds: 86_400, name: 'day' },
-          { seconds: 3_600, name: 'hour' },
-          { seconds: 60, name: 'minute' },
-          { seconds: 1, name: 'second' }
-        ];
-        const unit = units.find((candidate) => log10Seconds >= log10(candidate.seconds));
-        if (!unit) return 'less than 1 second';
-        const logAmount = log10Seconds - log10(unit.seconds);
-        if (unit.name === 'year' && logAmount >= 6) return `around 10^${Math.round(logAmount)} years`;
-        const amount = 10 ** logAmount;
-        const roundedAmount = amount < 10 ? Number(amount.toFixed(1)) : Math.round(amount);
-        return `around ${roundedAmount.toLocaleString()} ${unit.name}${roundedAmount === 1 ? '' : 's'}`;
-      };
-
-      passwordToCheck.addEventListener('input', () => {
-        const password = passwordToCheck.value;
-        if (!password) {
-          passwordStrength.textContent = 'Enter a sample password to estimate its crack time.';
-          return;
-        }
-        const hasLower = /[a-z]/.test(password);
-        const hasUpper = /[A-Z]/.test(password);
-        const hasNumber = /\d/.test(password);
-        const hasSymbol = /[^A-Za-z0-9]/.test(password);
-        const characterPool = (hasLower ? 26 : 0) + (hasUpper ? 26 : 0) + (hasNumber ? 10 : 0) + (hasSymbol ? 33 : 0);
-        const repeated = /^(.)\1+$/.test(password);
-        const commonOrSequential = /^(password|123456|12345678|qwerty|letmein|admin|welcome|iloveyou|0123456789|abcdefghijklmnopqrstuvwxyz)$/i.test(password);
-        const patternWarning = repeated || commonOrSequential;
-        const passwordLength = Array.from(password).length;
-        const log10AverageGuesses = patternWarning
-          ? 0
-          : passwordLength * log10(characterPool) - log10(2);
-        const crackTime = patternWarning
-          ? 'likely seconds or less (common or repeated pattern)'
-          : formatCrackTime(log10AverageGuesses - log10(guessesPerSecond));
-        passwordStrength.textContent = `Estimated crack time: ${crackTime} · Assumes 10 billion guesses/second and a randomly generated password.`;
-      });
-
-      const subnetInput = document.getElementById('subnet-input');
-      const subnetStatus = document.getElementById('subnet-status');
-      const subnetOutput = document.getElementById('subnet-output');
-      const toIPv4 = (value) => [24n, 16n, 8n, 0n]
-        .map((shift) => Number((value >> shift) & 255n))
-        .join('.');
-
-      document.getElementById('calculate-subnet').addEventListener('click', () => {
-        const match = subnetInput.value.trim().match(/^(\d{1,3}(?:\.\d{1,3}){3})\/(\d{1,2})$/);
-        if (!match) {
-          subnetOutput.hidden = true;
-          subnetStatus.textContent = 'Enter an IPv4 address with a CIDR prefix, such as 192.168.1.10/24.';
-          return;
-        }
-        const octets = match[1].split('.').map(Number);
-        const prefix = Number(match[2]);
-        if (octets.some((octet) => octet > 255) || prefix > 32) {
-          subnetOutput.hidden = true;
-          subnetStatus.textContent = 'Each IPv4 octet must be 0–255 and the prefix must be 0–32.';
-          return;
-        }
-
-        const address = octets.reduce((value, octet) => (value << 8n) | BigInt(octet), 0n);
-        const allBits = 0xffffffffn;
-        const mask = prefix === 0 ? 0n : (allBits << BigInt(32 - prefix)) & allBits;
-        const network = address & mask;
-        const broadcast = network | (allBits ^ mask);
-        const totalAddresses = 1n << BigInt(32 - prefix);
-        const usableHosts = prefix === 32 ? 1n : prefix === 31 ? 2n : totalAddresses - 2n;
-        const firstHost = prefix >= 31 ? network : network + 1n;
-        const lastHost = prefix >= 31 ? broadcast : broadcast - 1n;
-
-        document.getElementById('subnet-network').textContent = `${toIPv4(network)}/${prefix}`;
-        document.getElementById('subnet-mask').textContent = toIPv4(mask);
-        document.getElementById('subnet-broadcast').textContent = toIPv4(broadcast);
-        document.getElementById('subnet-host-range').textContent = `${toIPv4(firstHost)} – ${toIPv4(lastHost)}`;
-        document.getElementById('subnet-host-count').textContent = usableHosts.toLocaleString();
-        subnetOutput.hidden = false;
-        subnetStatus.textContent = 'Subnet calculated.';
-      });
-
-      const storageValue = document.getElementById('storage-value');
-      const storageUnit = document.getElementById('storage-unit');
-      const storageOutput = document.getElementById('storage-output');
-      const displayNumber = (value) => value.toLocaleString(undefined, { maximumSignificantDigits: 8 });
-      const updateStorageConversion = () => {
-        const value = Number(storageValue.value);
-        if (!Number.isFinite(value) || value < 0) {
-          storageOutput.textContent = 'Enter a valid non-negative number.';
-          return;
-        }
-        const bytes = value * Number(storageUnit.value);
-        if (!Number.isFinite(bytes)) {
-          storageOutput.textContent = 'That value is too large to convert.';
-          return;
-        }
-        storageOutput.replaceChildren();
-        [
-          ['Bytes', bytes, 'B'],
-          ['Kilobytes', bytes / 1000, 'KB'],
-          ['Megabytes', bytes / 1000000, 'MB'],
-          ['Gigabytes', bytes / 1000000000, 'GB'],
-          ['Kibibytes', bytes / 1024, 'KiB'],
-          ['Mebibytes', bytes / 1048576, 'MiB'],
-          ['Gibibytes', bytes / 1073741824, 'GiB']
-        ].forEach(([label, result, unit]) => {
-          const line = document.createElement('p');
-          line.textContent = `${label}: ${displayNumber(result)} ${unit}`;
-          storageOutput.append(line);
-        });
-      };
-      storageValue.addEventListener('input', updateStorageConversion);
-      storageUnit.addEventListener('change', updateStorageConversion);
-      updateStorageConversion();
-
-      const jsonInput = document.getElementById('json-input');
-      const jsonStatus = document.getElementById('json-status');
-      document.querySelectorAll('[data-json-format]').forEach((button) => {
-        button.addEventListener('click', () => {
-          try {
-            const parsed = JSON.parse(jsonInput.value);
-            jsonInput.value = JSON.stringify(parsed, null, button.dataset.jsonFormat === 'pretty' ? 2 : 0);
-            jsonStatus.textContent = 'Valid JSON.';
-          } catch (error) {
-            jsonStatus.textContent = `Invalid JSON: ${error.message}`;
-          }
-        });
-      });
-
-      const encodedInput = document.getElementById('encoded-input');
-      const encodedOutput = document.getElementById('encoded-output');
-      const encodingStatus = document.getElementById('encoding-status');
-      const encodeUtf8Base64 = (value) => {
-        const bytes = new TextEncoder().encode(value);
-        let binary = '';
-        for (let offset = 0; offset < bytes.length; offset += 0x8000) {
-          binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
-        }
-        return btoa(binary);
-      };
-      const decodeUtf8Base64 = (value) => {
-        const binary = atob(value.trim());
-        const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
-        return new TextDecoder('utf-8', { fatal: true }).decode(bytes);
-      };
-      document.querySelectorAll('[data-convert]').forEach((button) => {
-        button.addEventListener('click', () => {
-          try {
-            switch (button.dataset.convert) {
-              case 'url-encode':
-                encodedOutput.value = encodeURIComponent(encodedInput.value);
-                break;
-              case 'url-decode':
-                encodedOutput.value = decodeURIComponent(encodedInput.value);
-                break;
-              case 'base64-encode':
-                encodedOutput.value = encodeUtf8Base64(encodedInput.value);
-                break;
-              case 'base64-decode':
-                encodedOutput.value = decodeUtf8Base64(encodedInput.value);
-                break;
-              default:
-                throw new Error('Unknown conversion.');
-            }
-            encodingStatus.textContent = 'Conversion complete.';
-          } catch {
-            encodedOutput.value = '';
-            encodingStatus.textContent = 'Could not convert that input. Check the encoded text and try again.';
-          }
-        });
-      });
-
-      const unixInput = document.getElementById('unix-input');
-      const unixResult = document.getElementById('unix-result');
-      const dateToUnix = document.getElementById('date-to-unix');
-      const dateUnixResult = document.getElementById('date-unix-result');
-      document.getElementById('convert-unix').addEventListener('click', () => {
-        const timestamp = Number(unixInput.value);
-        const date = new Date(timestamp * 1000);
-        if (!unixInput.value.trim() || !Number.isFinite(timestamp) || !Number.isFinite(date.getTime())) {
-          unixResult.textContent = 'Enter a valid Unix timestamp in seconds.';
-          return;
-        }
-        unixResult.textContent = `${date.toISOString()} · ${date.toLocaleString()}`;
-      });
-      document.getElementById('current-unix').addEventListener('click', () => {
-        unixInput.value = String(Math.floor(Date.now() / 1000));
-        document.getElementById('convert-unix').click();
-      });
-      document.getElementById('convert-date').addEventListener('click', () => {
-        const date = new Date(dateToUnix.value);
-        if (!dateToUnix.value || !Number.isFinite(date.getTime())) {
-          dateUnixResult.textContent = 'Choose a valid date and time.';
-          return;
-        }
-        dateUnixResult.textContent = `${Math.floor(date.getTime() / 1000)} seconds`;
-      });
-
-      const pingForm = document.getElementById('ping-form');
-      const pingAddress = document.getElementById('ping-address');
-      const pingButton = document.getElementById('ping-button');
-      const pingStatus = document.getElementById('ping-status');
-      const pingResults = document.getElementById('ping-results');
-
-      pingForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        pingResults.replaceChildren();
-        let target;
-        try {
-          target = new URL(pingAddress.value.trim());
-        } catch {
-          pingStatus.textContent = 'Enter a valid HTTPS website address, such as https://example.com.';
-          return;
-        }
-        if (target.protocol !== 'https:' || !target.hostname) {
-          pingStatus.textContent = 'Enter a valid HTTPS website address, such as https://example.com.';
-          return;
-        }
-
-        pingButton.disabled = true;
-        pingStatus.textContent = `Checking ${target.hostname}...`;
-        const results = [];
-
-        for (let attempt = 1; attempt <= 4; attempt += 1) {
-          const controller = new AbortController();
-          const timeout = setTimeout(() => controller.abort(), 5000);
-          const startedAt = performance.now();
-          try {
-            await fetch(target.href, {
-              method: 'HEAD',
-              mode: 'no-cors',
-              cache: 'no-store',
-              signal: controller.signal
-            });
-            results.push({ attempt, elapsed: performance.now() - startedAt });
-          } catch (error) {
-            results.push({ attempt, error: error.name === 'AbortError' ? 'Timed out' : 'Request failed' });
-          } finally {
-            clearTimeout(timeout);
-          }
-        }
-
-        const successful = results.filter((result) => result.elapsed !== undefined);
-        for (const result of results) {
-          const item = document.createElement('li');
-          item.textContent = result.elapsed === undefined
-            ? `Attempt ${result.attempt}: ${result.error}`
-            : `Attempt ${result.attempt}: ${Math.round(result.elapsed)} ms`;
-          pingResults.append(item);
-        }
-
-        if (successful.length === 0) {
-          pingStatus.textContent = `No response from ${target.hostname}. Check the address, connection, and whether the site is reachable over HTTPS.`;
-        } else {
-          const times = successful.map((result) => result.elapsed);
-          const average = times.reduce((total, time) => total + time, 0) / times.length;
-          pingStatus.textContent = `${successful.length}/4 requests completed · Average ${Math.round(average)} ms · Min ${Math.round(Math.min(...times))} ms · Max ${Math.round(Math.max(...times))} ms`;
-        }
-        pingButton.disabled = false;
-      });
+      const tabs = document.querySelectorAll('[data-quick-tab]');
+      const panels = document.querySelectorAll('[data-quick-panel]');
+      tabs.forEach((tab) => tab.addEventListener('click', () => { tabs.forEach((item) => item.classList.toggle('is-active', item === tab)); panels.forEach((panel) => panel.classList.toggle('is-active', panel.dataset.quickPanel === tab.dataset.quickTab)); }));
+      const quickText = document.querySelector('#quick-text');
+      const textStats = document.querySelector('#text-stats');
+      const titleCase = (value) => value.toLowerCase().replace(/\b\w/g, (letter) => letter.toUpperCase());
+      document.querySelectorAll('[data-text-action]').forEach((button) => button.addEventListener('click', () => { const action = button.dataset.textAction; if (action === 'upper') quickText.value = quickText.value.toUpperCase(); if (action === 'lower') quickText.value = quickText.value.toLowerCase(); if (action === 'title') quickText.value = titleCase(quickText.value); if (action === 'slug') quickText.value = quickText.value.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-'); updateTextStats(); }));
+      function updateTextStats() { const value = quickText.value; const words = value.trim() ? value.trim().split(/\s+/).length : 0; textStats.textContent = `${words} words / ${value.length} characters / ${value ? value.split(/\r?\n/).length : 0} lines`; }
+      quickText.addEventListener('input', updateTextStats);
+      document.querySelectorAll('[data-json-action]').forEach((button) => button.addEventListener('click', () => { const result = document.querySelector('#json-result'); try { const parsed = JSON.parse(document.querySelector('#quick-json').value); document.querySelector('#quick-json').value = JSON.stringify(parsed, null, button.dataset.jsonAction === 'pretty' ? 2 : 0); result.textContent = 'Valid JSON.'; } catch (error) { result.textContent = `Invalid JSON: ${error.message}`; } }));
+      document.querySelector('#parse-url').addEventListener('click', () => { const result = document.querySelector('#url-result'); try { const url = new URL(document.querySelector('#quick-url').value); result.innerHTML = `<div><dt>Protocol</dt><dd>${url.protocol}</dd></div><div><dt>Domain</dt><dd>${url.hostname}</dd></div><div><dt>Port</dt><dd>${url.port || 'default'}</dd></div><div><dt>Path</dt><dd>${url.pathname}</dd></div><div><dt>Query</dt><dd>${url.search || 'none'}</dd></div><div><dt>Fragment</dt><dd>${url.hash || 'none'}</dd></div>`; } catch { result.innerHTML = '<p>Enter a valid URL first.</p>'; } });
+      const randomWords = ['cobalt','pixel','orbit','maple','signal','vector','cloud','quiet','bright','router'];
+      document.querySelector('#generate-random').addEventListener('click', () => { const type = document.querySelector('#random-type').value; let output = ''; if (type === 'uuid') output = crypto.randomUUID(); if (type === 'pin') output = String(Math.floor(100000 + Math.random() * 900000)); if (type === 'username') output = `${randomWords[Math.floor(Math.random()*randomWords.length)]}_${Math.floor(10 + Math.random()*90)}`; if (type === 'passphrase') output = Array.from({length:4}, () => randomWords[Math.floor(Math.random()*randomWords.length)]).join('-'); document.querySelector('#random-result').textContent = output; });
+      const quickDate = document.querySelector('#quick-date');
+      document.querySelector('#use-now').addEventListener('click', () => { const now = new Date(); now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); quickDate.value = now.toISOString().slice(0,16); });
+      document.querySelector('#make-timestamp').addEventListener('click', () => { const date = new Date(quickDate.value); document.querySelector('#timestamp-result').textContent = quickDate.value && !Number.isNaN(date.getTime()) ? `${Math.floor(date.getTime()/1000)} seconds since Unix epoch / ${date.toISOString()}` : 'Choose a valid date and time.'; });
+      document.querySelector('#convert-color').addEventListener('click', () => { const value = document.querySelector('#quick-color').value.trim(); const hex = value.match(/^#?([0-9a-f]{6})$/i); const result = document.querySelector('#color-result'); if (!hex) { result.innerHTML = '<p>Enter a six-digit HEX value, such as #00A9A0.</p>'; return; } const n = hex[1]; const r = parseInt(n.slice(0,2),16); const g = parseInt(n.slice(2,4),16); const b = parseInt(n.slice(4,6),16); result.innerHTML = `<div><dt>HEX</dt><dd>#${n.toUpperCase()}</dd></div><div><dt>RGB</dt><dd>rgb(${r}, ${g}, ${b})</dd></div><div><dt>CSS</dt><dd>color: #${n};</dd></div>`; });
+      const toolSearch = document.querySelector('#tool-search');
+      toolSearch.addEventListener('input', () => { const query = toolSearch.value.trim().toLowerCase(); document.querySelectorAll('.tool-directory-card').forEach((card) => { card.hidden = query && !card.dataset.toolName.includes(query); }); document.querySelectorAll('.tool-category').forEach((group) => { group.hidden = !group.querySelector('.tool-directory-card:not([hidden])'); }); });
     </script>
     <script src="site.js"></script>
   </body>
