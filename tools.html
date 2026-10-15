@@ -121,6 +121,8 @@
       function unitConvert(value, category, from, to) { if (from === to) return value; if (category === 'temperature') { const c = from === 'f' ? (value - 32) * 5 / 9 : value; return to === 'f' ? c * 9 / 5 + 32 : c; } const factors = { m:1, km:1000, mi:1609.344, ft:.3048, kg:1, lb:.45359237, mb:1, gb:1000, mbit:1, gbit:1000 }; return value * factors[from] / factors[to]; }
       async function runStudioTool() {
         const tool = studioSelect.value;
+        const requiredFields = { diff:['diff-a','diff-b'], hash:['hash-input','hash-algo'], filesize:['file-size','file-size-unit','file-speed'], csv:['csv-mode','csv-input'], base64:['base64-mode','base64-input'], regex:['regex-pattern','regex-flags','regex-text'], jwt:['jwt-input'], url:['url-input'], color:['color-input'], timestamp:['timestamp-input'], text:['text-mode','text-input'], random:['random-mode','random-length'], units:['unit-category','unit-value','unit-from','unit-to'], markdown:['markdown-input'], cidr:['cidr-input'], uptime:['uptime-percent','uptime-period'] };
+        if (requiredFields[tool]?.some((id) => !document.getElementById(id))) renderFields();
         try {
           let output = '';
           if (tool === 'diff') { const a = document.querySelector('#diff-a').value.split(/\r?\n/), b = document.querySelector('#diff-b').value.split(/\r?\n/); output = b.map((line, index) => `${line === a[index] ? '  ' : '+ '} ${line}`).join('\n') + `\n\nRemoved lines: ${Math.max(0, a.length - b.length)}`; }
