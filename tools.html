@@ -79,7 +79,7 @@
     </script>
     <script>
       document.querySelector('.quick-workbench')?.remove();
-      const studioSelect = document.querySelector('#studio-select');
+      const cardStudioSelect = document.querySelector('#studio-select');
       const studioFields = document.querySelector('#studio-fields');
       const studioResult = document.querySelector('#studio-result');
       if (studioSelect) {
@@ -167,7 +167,7 @@
           document.body.classList.add('modal-open');
           const action = document.querySelector('#studio-run');
           const copy = document.querySelector('#studio-copy');
-          if (supportedTools[key]) { studioSelect.value = supportedTools[key]; studioSelect.dispatchEvent(new Event('change')); action.disabled = false; copy.disabled = false; } else { document.querySelector('#studio-fields').innerHTML = '<p class="tool-modal-note">This tool is now open in the toolbox. Its dedicated checker is being connected next.</p>'; document.querySelector('#studio-result').textContent = 'Tool ready.'; action.disabled = true; copy.disabled = true; }
+          if (supportedTools[key]) { cardStudioSelect.value = supportedTools[key]; cardStudioSelect.dispatchEvent(new Event('change')); action.disabled = false; copy.disabled = false; } else { document.querySelector('#studio-fields').innerHTML = '<p class="tool-modal-note">This tool is now open in the toolbox. Its dedicated checker is being connected next.</p>'; document.querySelector('#studio-result').textContent = 'Tool ready.'; action.disabled = true; copy.disabled = true; }
           toolModalClose.focus();
         };
         card.addEventListener('click', openTool);
