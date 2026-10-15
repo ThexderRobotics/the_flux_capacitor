@@ -14,7 +14,7 @@
   window.addEventListener('resize', update);
   update();
 
-  const revealItems = document.querySelectorAll('.page-intro, .home-intro, .services-preview, .feature, .content-card, .contact-direct, .price-list, .pricing-note, .pricing-actions');
+  const revealItems = document.querySelectorAll('.page-intro, .home-intro, .services-preview, .feature, .content-card, .contact-direct, .price-list, .pricing-note, .pricing-actions, .hero-copy, .hero-visual, .service-section, .split-section, .process-v2, .final-cta');
   revealItems.forEach((item, index) => {
     item.classList.add('reveal');
     item.style.setProperty('--reveal-delay', `${Math.min(index * 55, 330)}ms`);
