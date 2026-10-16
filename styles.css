@@ -324,3 +324,14 @@ body:not(:has(.homepage)) footer { margin-top:40px; padding-top:28px; border-top
 .tool-modal .studio-actions .button-primary { border:1px solid #142b45; background:#142b45; color:#fff; box-shadow:0 10px 20px rgba(20,43,69,.18); }.tool-modal .studio-actions .button-primary:hover { border-color:#00a9a0; background:#0f7f7b; color:#fff; }.tool-modal .studio-actions .button-primary:active { transform:translateY(1px); background:#0b6663; }.tool-modal .studio-actions .button-primary:disabled { opacity:.55; cursor:not-allowed; }
 .modal-open { overflow:hidden; }.tool-modal[hidden] { display:none; }.tool-modal { position:fixed; z-index:100; inset:0; display:grid; place-items:center; padding:20px; background:rgba(19,38,60,.58); }.tool-modal-card { position:relative; width:min(720px,100%); max-height:min(760px,calc(100vh - 40px)); overflow:auto; padding:30px; border:1px solid #dfe7e5; border-radius:22px; background:#fff; box-shadow:0 24px 70px rgba(19,38,60,.28); }.tool-modal-card h2 { margin:8px 0 8px; color:var(--accent); font-size:clamp(1.8rem,4vw,2.8rem); }.tool-modal-card > p { margin:0 0 20px; color:#617383; line-height:1.7; }.tool-modal-close { position:absolute; top:14px; right:16px; width:36px; height:36px; border:0; border-radius:50%; background:#eef4f1; color:var(--accent); font-size:1.5rem; line-height:1; cursor:pointer; }.tool-modal-close:hover { background:#d9f2e9; }.tool-modal-note { padding:16px; border-radius:12px; background:#f3f7f5; color:#617383; line-height:1.6; }
 @media (max-width:760px) { .tool-modal-card { padding:24px 20px; }.tool-modal { padding:12px; } }
+/* Contact hours */
+.contact-hours { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,.8fr); gap:28px; align-items:center; margin:24px 0 70px; padding:28px 30px; border:1px solid #dfe7e5; border-radius:20px; background:#f3f7f5; }
+.contact-hours h2 { margin:8px 0 0; color:var(--accent); font-size:clamp(1.7rem,3vw,2.5rem); font-weight:800; letter-spacing:-.05em; }
+.hours-list { display:grid; gap:0; margin:0; }
+.hours-list > div { display:flex; justify-content:space-between; gap:20px; padding:12px 0; border-bottom:1px solid #d8e4df; color:#617383; font-size:.86rem; }
+.hours-list > div:last-child { border-bottom:0; }
+.hours-list dt { font-weight:800; color:var(--accent); }
+.hours-list dd { margin:0; text-align:right; }
+@media (max-width:760px) {
+  .contact-hours { grid-template-columns:1fr; margin-bottom:40px; padding:22px; }
+}
