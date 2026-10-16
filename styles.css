@@ -347,25 +347,3 @@ body:not(:has(.homepage)) footer { margin-top:40px; padding-top:28px; border-top
 @media (max-width:760px) {
   .home-hours { grid-template-columns:1fr; margin-bottom:42px; padding:24px; }
 }
-
-/* Fuller page rhythm */
-.wrap { width:min(1180px,calc(100% - 32px)); }
-header { padding:14px 0 10px; }
-main { padding:26px 0 36px; }
-.hero-v2 { min-height:calc(100vh - 145px); padding:38px 0 48px; gap:28px; }
-.service-section { padding:46px 0 54px; }
-.split-section { gap:46px; padding:52px 0; }
-.process-v2 { padding:54px 0 58px; }
-.final-cta { margin-bottom:36px; }
-.page-intro { margin-bottom:28px; }
-body:not(:has(.homepage)) .content-card { max-width:900px; }
-body:not(:has(.homepage)) footer { margin-top:24px; }
-
-@media (max-width:760px) {
-  .wrap { width:min(100% - 24px,1180px); }
-  main { padding:20px 0 28px; }
-  .hero-v2 { min-height:0; padding:34px 0 42px; }
-  .service-section { padding:40px 0 46px; }
-  .split-section { padding:44px 0; }
-  .process-v2 { padding:46px 0 50px; }
-}
